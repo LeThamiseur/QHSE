@@ -1,0 +1,171 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "username": "MLK2",
+      "nom": "SONG",
+      "prenom": "Ménélik",
+      "fonction": "QHSE",
+      "password": "Qhse1234<"
+    },
+    {
+      "id": "1",
+      "username": "Bokoyo",
+      "nom": "Florent",
+      "prenom": "Pastu",
+      "fonction": "QHSE",
+      "password": "Qwerty<123"
+    }
+  ],
+  "acc_inc": [
+    {
+      "id": "1",
+      "nature": "Trajet",
+      "nom_AccInc": "incident",
+      "lieu": "Ndokoti",
+      "date": "2024-02-12",
+      "description": "Description de l'accident même",
+      "heure": "15:20",
+      "tache": "Prise de côte sur le terrain",
+      "consequence": "Poste",
+      "dommage": "Aucun",
+      "nom_temoin": "Blaise Alphonse Siani",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Sabo Marc",
+      "matriculeV": "BG0019",
+      "service": "Peinture",
+      "poste": "Koumassi",
+      "typeContrat": "Intérimaire"
+    },
+    {
+      "id": "2",
+      "nature": "Trajet",
+      "nom_AccInc": "incident",
+      "lieu": "SOCAVER",
+      "date": "2024-02-12",
+      "description": "Description de l'accident même",
+      "heure": "15:20",
+      "tache": "Prise de côte sur le terrain",
+      "consequence": "Poste",
+      "dommage": "Aucun",
+      "nom_temoin": "Blaise Alphonse Siani",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bassong Junior",
+      "matriculeV": "BG0019",
+      "service": "Peinture",
+      "poste": "Koumassi",
+      "typeContrat": "Intérimaire"
+    },
+    {
+      "id": "3",
+      "nature": "Autre",
+      "nom_AccInc": "accident",
+      "lieu": "Ndokoti",
+      "date": "2024-04-12",
+      "description": "Description de l'incident",
+      "heure": "16:20",
+      "tache": "Préfabrication d'éléments constructifs",
+      "consequence": "Poste",
+      "dommage": "Humain",
+      "nom_temoin": "Etoumo steve",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bayanack Jean Paul",
+      "matriculeV": "BG0025",
+      "service": "Soudure",
+      "poste": "Ndokotie",
+      "typeContrat": "CDI"
+    },
+    {
+      "id": "4",
+      "nature": "Autre",
+      "nom_AccInc": "incident",
+      "lieu": "SOCAVER",
+      "date": "2024-04-13",
+      "description": "Description de l'incident dans tous les brefs détails",
+      "heure": "16:20",
+      "tache": "Préfabrication d'éléments constructifs",
+      "consequence": "Poste",
+      "dommage": "Matériel",
+      "nom_temoin": "Mahop steve",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bayemi Jean Paul",
+      "matriculeV": "BG0025",
+      "service": "Soudure",
+      "poste": "Socaver",
+      "typeContrat": "CDI"
+    },
+    {
+      "id": "7e0d",
+      "nom_AccInc": "accident",
+      "victime": "Boris DCC",
+      "matriculeV": "BG00203",
+      "typeContrat": "Stagiaire",
+      "service": "Peinture",
+      "poste": "Ndokoti",
+      "nature": "Poste",
+      "heure": "09:34",
+      "lieu": "Ndokoti",
+      "tache": "revêtement des postes de soudures",
+      "consequence": "Trajet",
+      "dommage": "Autre",
+      "description": "Echafaudage bousculer involontairement par un collègue effectuant une autre tâche",
+      "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
+      "nom_temoin": "Etoundi Steve"
+    },
+    {
+      "id": "8204",
+      "victime": "La Gachette thomas",
+      "matriculeV": "Bg555T02",
+      "typeContrat": "CDD",
+      "service": "Travail en hauteur",
+      "poste": "SCDP",
+      "nature": "Trajet",
+      "date": "2024-06-01",
+      "heure": "12:40",
+      "tache": "Installation des échafaudage ",
+      "consequence": "Poste",
+      "dommage": "Matériel et Humain",
+      "description": "Description",
+      "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
+      "nom_temoin": "Tagne Albert",
+      "nom_AccInc": "accident"
+    }
+  ],
+  "equipements": [
+    {
+      "id": "1",
+      "abreviation": "CP",
+      "designation": "Casque de Protection",
+      "Utility": "Diminue l'impact d'un choc reçu à la tête",
+      "Quantite": 10
+    },
+    {
+      "id": "2",
+      "abreviation": "BS",
+      "designation": "Bottes de protection",
+      "Utility": "Protège les pieds des chocs ",
+      "Quantite": 10
+    },
+    {
+      "id": "3",
+      "abreviation": "GP",
+      "designation": "Gant de protection",
+      "Utility": "Protège les mains des chocs, brulûre, corrosion",
+      "Quantite": 15
+    },
+    {
+      "id": "4",
+      "abreviation": "LP",
+      "designation": "Lunette de protetion",
+      "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
+      "Quantite": 15
+    },
+    {
+      "id": "a19a",
+      "abreviation": "EQtest",
+      "designation": "Equipement de test",
+      "Utility": "dbggg ",
+      "Quantite": 1
+    }
+  ]
+}
