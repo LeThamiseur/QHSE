@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Accinc } from '../../../../models/accinc';
 import { AccincService } from '../../../../services/accinc.service';
 import { ActivatedRoute } from '@angular/router';
+// import html2pdf from 'html2pdf.js'
 
 @Component({
   selector: 'app-declaration',
@@ -29,5 +30,14 @@ export class DeclarationComponent {
     const id = String(this.route.snapshot.paramMap.get('id'));
     this.accincservice.getAccincByID(id)
       .subscribe(accinc => this.accinc = accinc);
+  }
+
+  // download function
+  downloadForm() {
+    this.accincservice.generatePdf('pdfContent',`declaration ${this.accinc?.nom_AccInc}`);
+    // const elt = document.getElementById('pdfContent');
+    // html2pdf()
+    //       .from (elt)
+    //       .save('formulaire.pdf');
   }
 }
