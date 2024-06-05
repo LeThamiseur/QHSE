@@ -4,7 +4,7 @@
   <app-horizontalbar></app-horizontalbar>
 
     <div class="container">
-      <div class="contenu">
+      <div class="contenu" *ngIf="situationD">
 
         <div class="card bg-light-info shadow-none position-relative overflow-hidden">
           <div class="card-body px-4 py-3">
@@ -33,27 +33,24 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-3">Informations sur la situation</h5>
-            <form>
+            <form (ngSubmit)="save()">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="SD" placeholder="Situation dangereuse" value="Situation name"/>
+                    <input type="text" class="form-control" id="SD" placeholder="Situation dangereuse" [(ngModel)]="situationD.libelle" name="SD"/>
                     <label for="SD">Situation dangereuse</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="Description" placeholder="Description" value="Description de la situation"/>
+                    <input type="text" class="form-control" id="Description" placeholder="Description" value="Description de la situation" [(ngModel)]="situationD.description" name="description"/>
                     <label for="Description">Description</label>
                   </div>
                 </div>
 
                 <div class="scrollable-list form-control">
-                  <ul>
-                    <li>Risque 1 <button type="button" class="btn btn-danger ms-5">supprimer</button></li>
-                    <li>Risque 2 <button type="button" class="btn btn-danger ms-5">supprimer</button></li>
-                    <li>Risque 3 <button type="button" class="btn btn-danger ms-5">supprimer</button></li>
-                    <!-- Ajoutez plus d'éléments selon vos besoins -->
+                  <ul *ngFor="let risk of situationD.risques">
+                    <li>{{risk.nomR}} <button type="button" class="btn btn-danger ms-5">supprimer</button></li>
                   </ul>
                 </div>
 
@@ -70,6 +67,7 @@
                   </div>
                 </div>
               </div>
+              <span class="text-success" *ngIf="msg">{{msg}}</span>
             </form>
           </div>
         </div>

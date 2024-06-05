@@ -30,13 +30,15 @@
         </div>
 
         <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{formData.nom_AccInc}})</P>
-      <form (ngSubmit)="addAccInc()" #formDirective="ngForm">
+      <form novalidate (ngSubmit)="addAccInc()" #formDirective="ngForm">
         <div class="form-group">
           <!-- choix d'accident / incident start  -->
           <div class="row mt-5 mb-3">
             <div class="col-md-6">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="formData.nom_AccInc" value="accident">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="formData.nom_AccInc" value="accident" required
+                #AccincN = "ngModel"
+                [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                 <label class="form-check-label form-label" for="exampleRadios1">
                   ACCIDENT
                 </label>
@@ -44,7 +46,9 @@
             </div>
             <div class="col-md-6">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="formData.nom_AccInc"  value="incident">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="formData.nom_AccInc"  value="incident" required
+                #AccincN = "ngModel"
+                [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                 <label class="form-check-label form-label" for="exampleRadios2">
                   INCIDENT
                 </label>
@@ -65,27 +69,35 @@
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="nomV" class="form-label">Nom </label>
-                    <input id="nomV" type="text" class="form-control" placeholder="Nom et prénom de la victime" [(ngModel)]="formData.victime" name="nomV">
+                    <input id="nomV" type="text" class="form-control" placeholder="Nom et prénom de la victime" [(ngModel)]="formData.victime" name="nomV" required
+                      #victimeName = "ngModel"
+                      [ngClass]="{'is-invalid': victimeName.touched && !victimeName.valid}">
                   </div>
                 </div>
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="matricule" class="form-label">Matricule</label>
-                    <input id="matricule" type="text" class="form-control" placeholder="Matricule" [(ngModel)]="formData.matriculeV" name="matricule">
+                    <input id="matricule" type="text" class="form-control" placeholder="Matricule" [(ngModel)]="formData.matriculeV" name="matricule" required
+                    #matriV = "ngModel"
+                    [ngClass]="{'is-invalid': matriV.touched && !matriV.valid}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="service" class="form-label">Service</label>
-                    <input id="service" type="text" class="form-control" placeholder="Service" [(ngModel)]="formData.service" name="service">
+                    <input id="service" type="text" class="form-control" placeholder="Service" [(ngModel)]="formData.service" name="service" required
+                    #serviceV = "ngModel"
+                    [ngClass]="{'is-invalid': serviceV.touched && !serviceV.valid}">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="poste" class="form-label">Poste</label>
-                    <input id="poste" type="text" class="form-control" placeholder="Poste" [(ngModel)]="formData.poste" name="poste">
+                    <input id="poste" type="text" class="form-control" placeholder="Poste" [(ngModel)]="formData.poste" name="poste" required
+                    #posteV = "ngModel"
+                    [ngClass]="{'is-invalid': posteV.touched && !posteV.valid}">
                   </div>
                 </div>
               </div>
@@ -95,7 +107,9 @@
             <!-- type de contrat start -->
             <div class="col text-center">
               <label for="contrat" class="form-label">Type de contrat</label>
-              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="formData.typeContrat" name="contrat">
+              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="formData.typeContrat" name="contrat" required
+              #contratV = "ngModel"
+              [ngClass]="{'is-invalid': contratV.touched && !contratV.valid}">
                 <option selected>--- Type de contrat ---</option>
                 <option value="CDD">CDD</option>
                 <option value="CDI">CDI</option>
@@ -119,7 +133,9 @@
               <div class="row">
                 <div class="col-md-6 form-group mb-2">
                   <label for="nature" class="form-label">Nature </label>
-                  <select id="nature" class="form-select" aria-label="Default select example" [(ngModel)]="formData.nature" name="nature">
+                  <select id="nature" class="form-select" aria-label="Default select example" [(ngModel)]="formData.nature" name="nature" required
+                  #natureV = "ngModel"
+                  [ngClass]="{'is-invalid': natureV.touched && !natureV.valid}">
                     <option selected>--- Nature de l'accident---</option>
                     <option value="Poste">Poste</option>
                     <option value="Trajet">Trajet</option>
@@ -130,28 +146,38 @@
               <div class="col-md-6 form-group mb-2">
                 <!-- <div class="form-group"> -->
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" class="form-control" id="date" [(ngModel)]="formData.date" name="date">
+                  <input type="date" class="form-control" id="date" [(ngModel)]="formData.date" name="date" required
+                  #dateV = "ngModel"
+                  [ngClass]="{'is-invalid': dateV.touched && !dateV.valid}">
                 <!-- </div> -->
               </div>
 
               <div class="col-md-6 form-group mb-2">
                   <label for="heure" class="form-label">Heure</label>
-                  <input type="time" class="form-control" id="heure" [(ngModel)]="formData.heure" name="heure">
+                  <input type="time" class="form-control" id="heure" [(ngModel)]="formData.heure" name="heure" required
+                  #timeV = "ngModel"
+                  [ngClass]="{'is-invalid': timeV.touched && !timeV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                   <label for="lieu" class="form-label">Lieu</label>
-                  <input type="text" class="form-control" id="lieu" placeholder="Entrez le lieu " [(ngModel)]="formData.lieu" name="lieu">
+                  <input type="text" class="form-control" id="lieu" placeholder="Entrez le lieu " [(ngModel)]="formData.lieu" name="lieu" required
+                  #lieuV = "ngModel"
+                  [ngClass]="{'is-invalid': lieuV.touched && !lieuV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                 <label for="tache" class="form-label">Tâche en cours</label>
-                <input type="text" class="form-control" id="tache" placeholder="Tâche " [(ngModel)]="formData.tache" name="tache">
+                <input type="text" class="form-control" id="tache" placeholder="Tâche " [(ngModel)]="formData.tache" name="tache" required
+                #tacheV = "ngModel"
+                [ngClass]="{'is-invalid': tacheV.touched && !tacheV.valid}">
             </div>
 
             <div class="col-md-6 form-group mb-2">
               <label for="consequence" class="form-label">Conséquence</label>
-              <select id="consequence" class="form-select" aria-label="Default select example" [(ngModel)]="formData.consequence" name="consequence">
+              <select id="consequence" class="form-select" aria-label="Default select example" [(ngModel)]="formData.consequence" name="consequence" required
+              #consV = "ngModel"
+              [ngClass]="{'is-invalid': consV.touched && !consV.valid}">
                 <option selected>--- choisir la conséquence---</option>
                 <option value="Poste">Arrêt des travaux</option>
                 <option value="Trajet">Sans arrêt</option>
@@ -162,7 +188,9 @@
 
             <div class="col-md-6 form-group mb-2">
               <label for="dommage" class="form-label">Dommage</label>
-              <select id="dommage" class="form-select" aria-label="Default select example" [(ngModel)]="formData.dommage" name="dommage">
+              <select id="dommage" class="form-select" aria-label="Default select example" [(ngModel)]="formData.dommage" name="dommage" required
+              #domV = "ngModel"
+              [ngClass]="{'is-invalid': domV.touched && !domV.valid}">
                 <option selected>--- Choisir le dommage---</option>
                 <option value="Poste">Matériel</option>
                 <option value="Trajet">Humain</option>
@@ -179,7 +207,9 @@
 
         <div class="form-group mb-4">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description " [(ngModel)]="formData.description" name="description"></textarea>
+          <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description " [(ngModel)]="formData.description" name="description" required
+          #descrV = "ngModel"
+          [ngClass]="{'is-invalid': descrV.touched && !descrV.valid}"></textarea>
         </div>
 
         <!-- mesures prises et identification témoin -->
@@ -189,12 +219,16 @@
               <div class="row">
                 <div class="col-md-6 form-group mb-2">
                     <label for="mesuresPrises" class="form-label">Mesures prises à l'immédiat</label>
-                    <input type="text" class="form-control" id="mesuresPrises" [(ngModel)]="formData.mesuresPrises" name="mesuresPrises">
+                    <input type="text" class="form-control" id="mesuresPrises" [(ngModel)]="formData.mesuresPrises" name="mesuresPrises" required
+                    #mpV = "ngModel"
+                    [ngClass]="{'is-invalid': mpV.touched && !mpV.valid}">
                 </div>
 
                 <div class="col-md-6 form-group mb-2">
                     <label for="temoin" class="form-label">Nom et prénom du témoin</label>
-                    <input type="text" class="form-control" id="temoin" [(ngModel)]="formData.nom_temoin" name="temoin">
+                    <input type="text" class="form-control" id="temoin" [(ngModel)]="formData.nom_temoin" name="temoin" required
+                    #temoinV = "ngModel"
+                    [ngClass]="{'is-invalid': temoinV.touched && !temoinV.valid}">
                 </div>
 
               </div>
@@ -203,7 +237,7 @@
 
 
 
-        <button type="submit" class="btn btn-primary">Déclarer</button>
+        <button type="submit" [disabled]="!formDirective.form.valid" class="btn btn-primary">Déclarer</button>
       </form>
       <span *ngIf="msg" class="text-success">{{msg}}</span>
       </div>

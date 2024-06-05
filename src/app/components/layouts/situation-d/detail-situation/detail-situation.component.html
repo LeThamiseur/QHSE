@@ -4,7 +4,7 @@
   <app-horizontalbar></app-horizontalbar>
 
     <div class="container">
-      <div class="contenu">
+      <div class="contenu" *ngIf="situationD">
 
         <div class="card bg-light-info shadow-none position-relative overflow-hidden">
           <div class="card-body px-4 py-3">
@@ -38,29 +38,33 @@
                 <div class="col-md-6">
 
                   <label for="SD" class="form-label">Situation dangereuse</label>
-                  <p>Situation</p>
+                  <p>{{situationD.libelle}}</p>
 
                 </div>
                 <div class="col-md-6">
 
                   <label for="Description" class="form-label">Description</label>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, doloribus doloremque perferendis tempore provident minima dolor dolores fugiat quibusdam omnis esse aut in excepturi cumque facere sed iusto adipisci ipsum?</p>
+                  <p>{{situationD.description}}</p>
 
                 </div>
                 <div class="col-md-6">
 
                   <label for="Description" class="form-label">Risque (s)</label>
-                  <div class="scrollable-list form-control">
-                    <ul>
-                      <li>Risque 1</li>
-                      <li>Risque 2</li>
-                      <li>Risque 3</li>
-                      <li>Risque 3</li>
-                      <!-- Ajoutez plus d'éléments selon vos besoins -->
-                    </ul>
-                  </div>
 
-
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor=" let risk of situationD.risques; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td><a href="">{{risk.nomR}}</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
 
               </div>

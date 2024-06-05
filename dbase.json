@@ -27,7 +27,7 @@
       "description": "Description de l'accident même",
       "heure": "15:20",
       "tache": "Prise de côte sur le terrain",
-      "consequence": "Poste",
+      "consequence": "Sans arrêt",
       "dommage": "Aucun",
       "nom_temoin": "Blaise Alphonse Siani",
       "mesuresPrises": "Eloignement de la zone de danger",
@@ -46,7 +46,7 @@
       "description": "Description de l'accident même",
       "heure": "15:20",
       "tache": "Prise de côte sur le terrain",
-      "consequence": "Poste",
+      "consequence": "Sans arrêt",
       "dommage": "Aucun",
       "nom_temoin": "Blaise Alphonse Siani",
       "mesuresPrises": "Eloignement de la zone de danger",
@@ -65,7 +65,7 @@
       "description": "Description de l'incident",
       "heure": "16:20",
       "tache": "Préfabrication d'éléments constructifs",
-      "consequence": "Poste",
+      "consequence": "Sans arrêt",
       "dommage": "Humain",
       "nom_temoin": "Etoumo steve",
       "mesuresPrises": "Eloignement de la zone de danger",
@@ -84,7 +84,7 @@
       "description": "Description de l'incident dans tous les brefs détails",
       "heure": "16:20",
       "tache": "Préfabrication d'éléments constructifs",
-      "consequence": "Poste",
+      "consequence": "Sans arrêt",
       "dommage": "Matériel",
       "nom_temoin": "Mahop steve",
       "mesuresPrises": "Eloignement de la zone de danger",
@@ -106,28 +106,49 @@
       "heure": "09:34",
       "lieu": "Ndokoti",
       "tache": "revêtement des postes de soudures",
-      "consequence": "Trajet",
-      "dommage": "Autre",
+      "consequence": "Sans arrêt",
+      "dommage": "Matériel",
       "description": "Echafaudage bousculer involontairement par un collègue effectuant une autre tâche",
       "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
-      "nom_temoin": "Etoundi Steve"
+      "nom_temoin": "Etoundi Steve",
+      "date": "2024-05-29"
     },
     {
       "id": "8204",
       "victime": "La Gachette thomas",
       "matriculeV": "Bg555T02",
-      "typeContrat": "CDD",
+      "typeContrat": "Intérimaire",
       "service": "Travail en hauteur",
       "poste": "SCDP",
       "nature": "Trajet",
       "date": "2024-06-01",
       "heure": "12:40",
       "tache": "Installation des échafaudage ",
-      "consequence": "Poste",
+      "consequence": "Sans arrêt",
       "dommage": "Matériel et Humain",
       "description": "Description  La démarche de prévention doit être collective. Elle doit associer les salariés qui sont souvent ceux qui connaissent le mieux\nles situations dangereuses. L’analyse doit porter sur le travail réel du salarié par observation du poste de travail et participation\nde celui ci.\nIl y a utilité à distinguer :\n- le travail théorique tel qu’il peut être décrit dans des livres avec des fiches de poste standard qui ne sont que des\nreprésentations théoriques des tâches du métier concerné.\n- le travail prescrit : c’est celui que le responsable demande au salarié de réaliser.\n- le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et\ndysfonctionnements imprévus, de l’expérience et de la compétence du salarié…\n",
       "mesuresPrises": "Eloignement de la zone de danger et appel des secours et plusieurs autre chose que je ne pourrais citer à l'instant ne sont que des représentations théoriques des tâches du métier concerné. - le travail prescrit : c’est celui que le responsable demande au salarié de réaliser. - le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et dysfonctionnements imprévus, de l’expérience et de la compétence du salarié…",
       "nom_temoin": "Tagne Albert",
+      "nom_AccInc": "accident",
+      "lieu": "SCDP"
+    },
+    {
+      "id": "a50f",
+      "victime": "Bassong Kévin",
+      "matriculeV": "BG0020557",
+      "typeContrat": "CDI",
+      "service": "Peinture",
+      "poste": "Ndokoti",
+      "nature": "Poste",
+      "date": "2024-06-05",
+      "heure": "09:36",
+      "lieu": "Ndokoti",
+      "tache": "revêtement des postes de soudures",
+      "consequence": "Autre",
+      "dommage": "Aucun",
+      "description": "dcdcddddwcdcd",
+      "mesuresPrises": "Appel direct de la hiérarchie",
+      "nom_temoin": "Blaise Alphonse Siani",
       "nom_AccInc": "accident"
     }
   ],
@@ -166,6 +187,50 @@
       "designation": "Equipement de test",
       "Utility": "tesvsgrg",
       "Quantite": 1
+    }
+  ],
+  "dangers": [
+    {
+      "id": "1",
+      "libelle": "Chutes de hauteur",
+      "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection adéquate",
+      "risques": [
+        {
+          "id": "1",
+          "nomR": "Chutes",
+          "frequence": 3,
+          "gravity": 2,
+          "preventiveMes": " mesures "
+        },
+        {
+          "id": "2",
+          "nomR": "Blessures",
+          "frequence": 5,
+          "gravity": 3,
+          "preventiveMes": " mesures "
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "libelle": "Axposition à des produits chimiques",
+      "description": "Manipulation de substances toxiques sans protection.",
+      "risques": [
+        {
+          "id": "3",
+          "nomR": "Intoxication",
+          "frequence": 2,
+          "gravity": 4,
+          "preventiveMes": " mesures "
+        },
+        {
+          "id": "4",
+          "nomR": "Brûlures chimiques",
+          "frequence": 1,
+          "gravity": 1,
+          "preventiveMes": " mesures "
+        }
+      ]
     }
   ]
 }

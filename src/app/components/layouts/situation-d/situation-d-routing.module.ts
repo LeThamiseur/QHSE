@@ -15,10 +15,10 @@ const routes: Routes = [
     path:'SD/nv_situation', component : AddSituationComponent
   },
   {
-    path:'SD/detail_situ', component : DetailSituationComponent
+    path:'SD/detail_situ/:id', component : DetailSituationComponent
   },
   {
-    path:'SD/edit_situ', component : EditSituationComponent
+    path:'SD/edit_situ/:id', component : EditSituationComponent
   },
 ];
 

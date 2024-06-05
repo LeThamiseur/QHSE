@@ -34,11 +34,11 @@ export class EditEquipComponent {
 
   save(): void {
     this.equipementService.updateEquip(this.equipement).subscribe(response => {
-      console.log('Déclaration mise à jour avec succès', response);
-        if (response){this.msg='Déclaration mise à jour avec succès'}
+      console.log('Mis à jour avec succès', response);
+        if (response){this.msg='Mis à jour avec succès'}
       }), (error: any) => {
-        console.error('Error lors la mise à jour de la declaration', error);
-        if (error){this.msg='Error lors la mise à jour de la declaration'};
+        console.error('Error lors la mise à jour ', error);
+        if (error){this.msg='Error lors la mise à jour '};
       }
 
   }
