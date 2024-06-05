@@ -125,8 +125,8 @@
       "tache": "Installation des échafaudage ",
       "consequence": "Poste",
       "dommage": "Matériel et Humain",
-      "description": "Description",
-      "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
+      "description": "Description  La démarche de prévention doit être collective. Elle doit associer les salariés qui sont souvent ceux qui connaissent le mieux\nles situations dangereuses. L’analyse doit porter sur le travail réel du salarié par observation du poste de travail et participation\nde celui ci.\nIl y a utilité à distinguer :\n- le travail théorique tel qu’il peut être décrit dans des livres avec des fiches de poste standard qui ne sont que des\nreprésentations théoriques des tâches du métier concerné.\n- le travail prescrit : c’est celui que le responsable demande au salarié de réaliser.\n- le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et\ndysfonctionnements imprévus, de l’expérience et de la compétence du salarié…\n",
+      "mesuresPrises": "Eloignement de la zone de danger et appel des secours et plusieurs autre chose que je ne pourrais citer à l'instant ne sont que des représentations théoriques des tâches du métier concerné. - le travail prescrit : c’est celui que le responsable demande au salarié de réaliser. - le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et dysfonctionnements imprévus, de l’expérience et de la compétence du salarié…",
       "nom_temoin": "Tagne Albert",
       "nom_AccInc": "accident"
     }
@@ -158,13 +158,13 @@
       "abreviation": "LP",
       "designation": "Lunette de protetion",
       "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
-      "Quantite": 15
+      "Quantite": 14
     },
     {
-      "id": "a19a",
+      "id": "bbec",
       "abreviation": "EQtest",
       "designation": "Equipement de test",
-      "Utility": "dbggg ",
+      "Utility": "tesvsgrg",
       "Quantite": 1
     }
   ]
