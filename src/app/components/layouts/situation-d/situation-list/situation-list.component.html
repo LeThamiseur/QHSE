@@ -49,15 +49,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let situation of situationD, let i = index">
+                    <tr *ngFor="let situation of situationDList, let i = index">
                       <td>
                         {{i+1}}
                       </td>
                       <td><p class="mb-0 fw-normal">{{situation.libelle}}</p></td>
                       <td>
-                        <tr>risque</tr>
-                        <tr>risque</tr>
-                        <tr>risque</tr>
+                        <tr *ngFor = "let risk of situation.risques">{{risk.nomR}}</tr>
                       </td>
                       <td>
                         <div class="dropdown dropstart">
@@ -66,10 +64,10 @@
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/SD/detail_situ"><i class="fa-solid fa-circle-info"></i>Détails</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/SD/detail_situ/{{situation.id}}"><i class="fa-solid fa-circle-info"></i>Détails</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/SD/edit_situ"><i class="fs-4 ti ti-edit"></i>Edit</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/SD/edit_situ/{{situation.id}}"><i class="fs-4 ti ti-edit"></i>Edit</a>
                             </li>
                             <li>
                               <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>

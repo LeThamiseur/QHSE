@@ -6,6 +6,7 @@ import { EditSituationComponent } from './edit-situation/edit-situation.componen
 import { SituationListComponent } from './situation-list/situation-list.component';
 import { SituationDRoutingModule } from './situation-d-routing.module';
 import { NavbarModule } from '../../navigation/navbar.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { NavbarModule } from '../../navigation/navbar.module';
   imports: [
     CommonModule,
     SituationDRoutingModule,
-    NavbarModule
+    NavbarModule,
+    FormsModule
   ]
 })
 export class SituationDModule { }

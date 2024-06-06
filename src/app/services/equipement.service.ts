@@ -48,7 +48,7 @@ export class EquipementService {
   updateEquip(equip: Equipement): Observable<Equipement> {
     return this.httpClient.put<Equipement>(`${this.apiUrl}/equipements/${equip.id}`, equip, this.httpOptions).pipe(
       tap(_ =>console.log(`updated equipement id=${equip.id}`)),
-      catchError(this.handleError<Equipement>('AccInc'))
+      catchError(this.handleError<Equipement>('Equipement'))
     );
   }
 
