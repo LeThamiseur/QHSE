@@ -32,10 +32,17 @@ export class EquipementService {
   }
 
   /** DELETE: supprimer un equipement */
+  // deleteEquip(id: string): Observable<Equipement> {
+  //   return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
+  //     tap(_ => console.log(`deleted equipement id=${id}`)),
+  //     catchError(this.handleError<Equipement>('deleteEquipement'))
+  //   );
+  // }
+
   deleteEquip(id: string): Observable<Equipement> {
     return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
       tap(_ => console.log(`deleted equipement id=${id}`)),
-      catchError(this.handleError<Equipement>('deleteEquipement'))
+      catchError(this.handleError<Equipement>('deleteEquip'))
     );
   }
 

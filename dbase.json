@@ -114,25 +114,6 @@
       "date": "2024-05-29"
     },
     {
-      "id": "8204",
-      "victime": "La Gachette thomas",
-      "matriculeV": "Bg555T02",
-      "typeContrat": "Intérimaire",
-      "service": "Travail en hauteur",
-      "poste": "SCDP",
-      "nature": "Trajet",
-      "date": "2024-06-01",
-      "heure": "12:40",
-      "tache": "Installation des échafaudage ",
-      "consequence": "Sans arrêt",
-      "dommage": "Matériel et Humain",
-      "description": "Description  La démarche de prévention doit être collective. Elle doit associer les salariés qui sont souvent ceux qui connaissent le mieux\nles situations dangereuses. L’analyse doit porter sur le travail réel du salarié par observation du poste de travail et participation\nde celui ci.\nIl y a utilité à distinguer :\n- le travail théorique tel qu’il peut être décrit dans des livres avec des fiches de poste standard qui ne sont que des\nreprésentations théoriques des tâches du métier concerné.\n- le travail prescrit : c’est celui que le responsable demande au salarié de réaliser.\n- le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et\ndysfonctionnements imprévus, de l’expérience et de la compétence du salarié…\n",
-      "mesuresPrises": "Eloignement de la zone de danger et appel des secours et plusieurs autre chose que je ne pourrais citer à l'instant ne sont que des représentations théoriques des tâches du métier concerné. - le travail prescrit : c’est celui que le responsable demande au salarié de réaliser. - le travail réel qui est celui réalisé par le salarié pour répondre au travail prescrit et qui est fonction des aléas et dysfonctionnements imprévus, de l’expérience et de la compétence du salarié…",
-      "nom_temoin": "Tagne Albert",
-      "nom_AccInc": "accident",
-      "lieu": "SCDP"
-    },
-    {
       "id": "a50f",
       "victime": "Bassong Kévin",
       "matriculeV": "BG0020557",
@@ -182,18 +163,18 @@
       "Quantite": 14
     },
     {
-      "id": "bbec",
+      "id": "08da",
       "abreviation": "EQtest",
       "designation": "Equipement de test",
-      "Utility": "tesvsgrg",
-      "Quantite": 1
+      "Utility": "xdvdd",
+      "Quantite": 2
     }
   ],
   "dangers": [
     {
       "id": "1",
       "libelle": "Chutes de hauteur",
-      "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection adéquate",
+      "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection(s) adéquate(s)",
       "risques": [
         {
           "id": "1",
@@ -231,6 +212,12 @@
           "preventiveMes": " mesures "
         }
       ]
+    },
+    {
+      "id": "fa2a",
+      "risques": [],
+      "libelle": "Câblage défectueux ",
+      "description": ""
     }
   ]
 }
