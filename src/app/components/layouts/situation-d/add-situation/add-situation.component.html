@@ -33,17 +33,17 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-3">Informations sur la situation</h5>
-            <form>
+            <form (ngSubmit)="addSD()" #sDForm="ngForm">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="SD" placeholder="Situation dangereuse" />
+                    <input type="text" class="form-control" id="SD" placeholder="Situation dangereuse" [(ngModel)]="formData.libelle" name="SD"/>
                     <label for="SD">Situation dangereuse</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="Description" placeholder="Description"/>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description" [(ngModel)]="formData.description" name="description"></textarea>
                     <label for="Description">Description</label>
                   </div>
                 </div>
@@ -61,6 +61,7 @@
                 </div>
               </div>
             </form>
+            <p *ngIf="msg" class="text-success">{{msg}}</p>
           </div>
         </div>
 

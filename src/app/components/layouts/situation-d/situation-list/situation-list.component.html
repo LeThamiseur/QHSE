@@ -28,9 +28,10 @@
               </div>
               <div class="col-5">
                 <div class="input-group">
-                  <input type="text" class="form-control mx-1" placeholder="Rechercher une situa...">
+                  <input type="text" class="form-control mx-1" placeholder="Rechercher un danger..." #searchEqui>
                   <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">Rechercher</button>
+                    <button class="btn btn-primary" type="button"
+                      (click)="filterResults(searchEqui.value)">Rechercher</button>
                   </div>
                 </div>
               </div>
@@ -49,7 +50,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let situation of situationDList, let i = index">
+                    <tr *ngFor="let situation of filteredSDList, let i = index">
                       <td>
                         {{i+1}}
                       </td>
@@ -70,7 +71,7 @@
                               <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/SD/edit_situ/{{situation.id}}"><i class="fs-4 ti ti-edit"></i>Edit</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" (click)="delete(situation)"><i class="fs-4 ti ti-trash"></i>Delete</a>
                             </li>
                           </ul>
                         </div>
@@ -82,6 +83,7 @@
               </div>
           </div>
         </div>
+        <p *ngIf="msg" class="text-danger">{{msg}}</p>
 
       </div>
     </div>

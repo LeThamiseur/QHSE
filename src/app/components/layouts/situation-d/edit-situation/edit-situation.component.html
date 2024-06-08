@@ -43,17 +43,13 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="Description" placeholder="Description" value="Description de la situation" [(ngModel)]="situationD.description" name="description"/>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description " [(ngModel)]="situationD.description" name="description"></textarea>
                     <label for="Description">Description</label>
                   </div>
                 </div>
 
-                <div class="scrollable-list form-control">
-                  <ul *ngFor="let risk of situationD.risques">
-                    <li>{{risk.nomR}} <button type="button" class="btn btn-danger ms-5">supprimer</button></li>
-                  </ul>
+                <div class="col-md-6">
                 </div>
-
                 <div class="col-12">
                   <div class="d-md-flex align-items-center mt-3">
 

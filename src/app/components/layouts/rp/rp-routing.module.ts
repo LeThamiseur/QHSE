@@ -13,7 +13,7 @@ const routes: Routes = [
     path:'RP/nv_risque', component : AddRisqueComponent
   },
   {
-    path:'RP/edit_risq', component : EditRisqueComponent
+    path:'RP/edit_risq/:dangerId/:riskId', component : EditRisqueComponent
   },
 ];
 

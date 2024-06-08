@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { SituationD } from '../models/situation-D';
+import { RisqueP } from '../models/RisqueP';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class DangRiskService {
 
 
   constructor(private httpclient: HttpClient) { }
+
+  // danger
 
  /** GET dangerList */
   getDangRisk(danger: SituationD[]): Observable<SituationD[]> {
@@ -39,6 +42,21 @@ export class DangRiskService {
     );
   }
 
+  addDang(danger: SituationD): Observable<SituationD> {
+    return this.httpclient.post<SituationD>(`${this.apiUrl}/dangers`, danger, this.httpOptions).pipe(
+      tap((newDang: SituationD) => console.log(`SD ajoutée/ id=${newDang.id}`)),
+      catchError(this.handleError<SituationD>('addDang'))
+    );
+  }
+
+  deleteDang(id: string): Observable<SituationD> {
+    return this.httpclient.delete<SituationD>(`${this.apiUrl}/dangers/${id}`, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted danger id=${id}`)),
+      catchError(this.handleError<SituationD>('deleteDang'))
+    );
+  }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -52,4 +70,15 @@ export class DangRiskService {
       return of(result as T);
     };
   }
+
+
+
+  updateRisk(dangerId: string, riskId: string, riskData: RisqueP): Observable<any> {
+    return this.httpclient.put<any>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`, riskData, this.httpOptions)
+      .pipe(
+        tap(_ => console.log(`updated risk id=${riskId}`)),
+        catchError(this.handleError<any>('updateRisk'))
+      );
+  }
+
 }

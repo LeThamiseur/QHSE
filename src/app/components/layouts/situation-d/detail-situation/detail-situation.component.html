@@ -49,19 +49,15 @@
                 </div>
                 <div class="col-md-6">
 
-                  <label for="Description" class="form-label">Risque (s)</label>
-
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
+                        <th scope="col"><b>Risque(s) associé(s)</b></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor=" let risk of situationD.risques; let i = index">
-                        <th scope="row">{{i+1}}</th>
-                        <td><a href="">{{risk.nomR}}</a></td>
+                      <tr *ngFor=" let risk of situationD.risques">
+                        <td>{{risk.nomR}}</td>
                       </tr>
                     </tbody>
                   </table>

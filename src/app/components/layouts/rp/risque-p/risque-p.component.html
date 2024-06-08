@@ -44,7 +44,7 @@
                 <table class="table border text-nowrap customize-table mb-0 align-middle">
                   <thead class="text-dark fs-4">
                     <tr>
-                      <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Situation Dangereuse</h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Risque prévisible </h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Fréquence (F) </h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Gravité (G) </h6></th>
@@ -53,108 +53,48 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <!-- <tr *ngFor="let situation of situationDList"> -->
+                    <tr *ngFor="let situation of situationDList">
                       <td>
-                        1
+                        <b>{{situation.libelle}}</b>
                       </td>
-                      <td><p class="mb-0 fw-normal">Risque</p></td>
-                      <td><p class="mb-0 fw-normal">4</p></td>
-                      <td><p class="mb-0 fw-normal">3</p></td>
-                      <td><p class="mb-0 fw-normal">Elevé</p></td>
+                      <!-- <td *ngFor="let risk of situation.risques"> -->
+                      <td >
+                        <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques"><a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a></p></tr>
+                      </td>
+
                       <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-6"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/RP/edit_risq"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
+                        <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">{{risk.frequence}}</p></tr>
                       </td>
+
+                      <td>
+                        <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">{{risk.gravity}}</p></tr>
+                      </td>
+                      <td ><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">Elevé</p></td>
+                      <td>
+                        <tr *ngFor="let risk of situation.risques">
+                          <a class="align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i></a>
+                        </tr>
+                      </td>
+
+                      <!-- <ng-container *ngFor="let risk of situation.risques">
+                        <tr>
+                          <td><a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a></td>
+                          <td>{{risk.frequence}}</td>
+                          <td>{{risk.gravity}}</td>
+                          <td>Élevé</td>
+                          <td><a class="align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i></a></td>
+                        </tr>
+                      </ng-container> -->
                     </tr>
-                    <tr>
-                      <td>
-                        1
-                      </td>
-                      <td><p class="mb-0 fw-normal">Risque</p></td>
-                      <td><p class="mb-0 fw-normal">4</p></td>
-                      <td><p class="mb-0 fw-normal">3</p></td>
-                      <td><p class="mb-0 fw-normal">Elevé</p></td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-6"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/RP/edit_risq"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        1
-                      </td>
-                      <td><p class="mb-0 fw-normal">Risque</p></td>
-                      <td><p class="mb-0 fw-normal">4</p></td>
-                      <td><p class="mb-0 fw-normal">3</p></td>
-                      <td><p class="mb-0 fw-normal">Elevé</p></td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-6"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/RP/edit_risq"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        1
-                      </td>
-                      <td><p class="mb-0 fw-normal">Risque</p></td>
-                      <td><p class="mb-0 fw-normal">1</p></td>
-                      <td><p class="mb-0 fw-normal">1</p></td>
-                      <td><p class="mb-0 fw-normal">faible</p></td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="ti ti-dots-vertical fs-6"></i>
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/RP/edit_risq"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
+
 
 
 
                   </tbody>
                 </table>
                 <!-- ================================== -->
+
               </div>
           </div>
         </div>

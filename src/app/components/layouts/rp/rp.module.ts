@@ -5,6 +5,7 @@ import { RpRoutingModule } from './rp-routing.module';
 import { NavbarModule } from '../../navigation/navbar.module';
 import { RisquePComponent } from './risque-p/risque-p.component';
 import { EditRisqueComponent } from './edit-risque/edit-risque.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { EditRisqueComponent } from './edit-risque/edit-risque.component';
   imports: [
     CommonModule,
     RpRoutingModule,
-    NavbarModule
+    NavbarModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RpModule { }
