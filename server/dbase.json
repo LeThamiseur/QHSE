@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "0",
+      "id": 1,
       "username": "MLK2",
       "nom": "SONG",
       "prenom": "Ménélik",
@@ -9,17 +9,25 @@
       "password": "Qhse1234<"
     },
     {
-      "id": "1",
+      "id": 2,
       "username": "Bokoyo",
       "nom": "Florent",
       "prenom": "Pastu",
       "fonction": "QHSE",
       "password": "Qwerty<123"
+    },
+    {
+      "username": "LeYoung",
+      "prenom": "Franck",
+      "nom": "Erick",
+      "fonction": "HSE",
+      "password": "Tchatcha07<",
+      "id": 3
     }
   ],
   "acc_inc": [
     {
-      "id": "1",
+      "id": 1,
       "nature": "Trajet",
       "nom_AccInc": "incident",
       "lieu": "Ndokoti",
@@ -38,7 +46,7 @@
       "typeContrat": "Intérimaire"
     },
     {
-      "id": "2",
+      "id": 2,
       "nature": "Trajet",
       "nom_AccInc": "incident",
       "lieu": "SOCAVER",
@@ -57,7 +65,7 @@
       "typeContrat": "Intérimaire"
     },
     {
-      "id": "3",
+      "id": 3,
       "nature": "Autre",
       "nom_AccInc": "accident",
       "lieu": "Ndokoti",
@@ -76,7 +84,7 @@
       "typeContrat": "CDI"
     },
     {
-      "id": "4",
+      "id": 4,
       "nature": "Autre",
       "nom_AccInc": "incident",
       "lieu": "SOCAVER",
@@ -95,7 +103,7 @@
       "typeContrat": "CDI"
     },
     {
-      "id": "7e0d",
+      "id": 5,
       "nom_AccInc": "accident",
       "victime": "Boris DCC",
       "matriculeV": "BG00203",
@@ -114,7 +122,7 @@
       "date": "2024-05-29"
     },
     {
-      "id": "a50f",
+      "id": 6,
       "victime": "Bassong Kévin",
       "matriculeV": "BG0020557",
       "typeContrat": "CDI",
@@ -135,35 +143,35 @@
   ],
   "equipements": [
     {
-      "id": "1",
+      "id": 1,
       "abreviation": "CP",
       "designation": "Casque de Protection",
       "Utility": "Diminue l'impact d'un choc reçu à la tête",
       "Quantite": 10
     },
     {
-      "id": "2",
+      "id": 2,
       "abreviation": "BS",
       "designation": "Bottes de protection",
       "Utility": "Protège les pieds des chocs ",
       "Quantite": 10
     },
     {
-      "id": "3",
+      "id": 3,
       "abreviation": "GP",
       "designation": "Gant de protection",
       "Utility": "Protège les mains des chocs, brulûre, corrosion",
       "Quantite": 15
     },
     {
-      "id": "4",
+      "id": 4,
       "abreviation": "LP",
       "designation": "Lunette de protetion",
       "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
       "Quantite": 14
     },
     {
-      "id": "08da",
+      "id": 5,
       "abreviation": "EQtest",
       "designation": "Equipement de test",
       "Utility": "xdvdd",
@@ -172,52 +180,52 @@
   ],
   "dangers": [
     {
-      "id": "1",
+      "id": 1,
       "libelle": "Chutes de hauteur",
       "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection(s) adéquate(s)",
       "risques": [
         {
-          "id": "1",
+          "id": 1,
           "nomR": "Chutes",
-          "frequence": 3,
+          "frequence": 2,
           "gravity": 2,
           "preventiveMes": " mesures "
         },
         {
-          "id": "2",
+          "id": 2,
           "nomR": "Blessures",
-          "frequence": 5,
+          "frequence": 4,
           "gravity": 3,
           "preventiveMes": " mesures "
         }
       ]
     },
     {
-      "id": "2",
-      "libelle": "Axposition à des produits chimiques",
+      "id": 2,
+      "libelle": "Exposition à des produits chimiques",
       "description": "Manipulation de substances toxiques sans protection.",
       "risques": [
         {
-          "id": "3",
+          "id": 1,
           "nomR": "Intoxication",
           "frequence": 2,
           "gravity": 4,
           "preventiveMes": " mesures "
         },
         {
-          "id": "4",
+          "id": 2,
           "nomR": "Brûlures chimiques",
-          "frequence": 1,
-          "gravity": 1,
+          "frequence": 2,
+          "gravity": 3,
           "preventiveMes": " mesures "
         }
       ]
     },
     {
-      "id": "fa2a",
       "risques": [],
       "libelle": "Câblage défectueux ",
-      "description": ""
+      "description": "sgfgrnbg hjfhy",
+      "id": 3
     }
   ]
 }

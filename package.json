@@ -20,6 +20,7 @@
     "@angular/router": "^17.3.0",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
+    "json-server-router": "^2.8.0",
     "jspdf": "^2.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

@@ -59,9 +59,11 @@
                         <b>{{situation.libelle}}</b>
                       </td>
                       <!-- <td *ngFor="let risk of situation.risques"> -->
-                      <td >
-                        <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques"><a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a></p></tr>
-                      </td>
+                        <td>
+                          <p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">
+                            <a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a>
+                          </p>
+                        </td>
 
                       <td>
                         <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">{{risk.frequence}}</p></tr>
