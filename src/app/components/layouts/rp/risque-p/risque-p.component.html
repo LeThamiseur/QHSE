@@ -56,12 +56,14 @@
                     <!-- <tr *ngFor="let situation of situationDList"> -->
                     <tr *ngFor="let situation of situationDList">
                       <td>
-                        <b>{{situation.libelle}}</b>
+                        <b>{{situation.libelle}} &nbsp; <a routerLink="/RP/nv_risque/{{situation.id}}/add-risk"><i class="fa-solid fa-plus me-2"></i></a></b>
                       </td>
                       <!-- <td *ngFor="let risk of situation.risques"> -->
-                      <td >
-                        <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques"><a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a></p></tr>
-                      </td>
+                        <td>
+                          <p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">
+                            <a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a>
+                          </p>
+                        </td>
 
                       <td>
                         <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">{{risk.frequence}}</p></tr>
@@ -77,15 +79,7 @@
                         </tr>
                       </td>
 
-                      <!-- <ng-container *ngFor="let risk of situation.risques">
-                        <tr>
-                          <td><a routerLink="/RP/edit_risq/{{situation.id}}/{{risk.id}}">{{risk.nomR}}</a></td>
-                          <td>{{risk.frequence}}</td>
-                          <td>{{risk.gravity}}</td>
-                          <td>Élevé</td>
-                          <td><a class="align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i></a></td>
-                        </tr>
-                      </ng-container> -->
+
                     </tr>
 
 

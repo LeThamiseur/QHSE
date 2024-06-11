@@ -71,14 +71,31 @@ export class DangRiskService {
     };
   }
 
+// afficher un risque
+  getRiskById(dangerId: string, riskId: string): Observable<RisqueP> {
+    return this.httpclient.get<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`)
+      .pipe(
+        tap(_ => console.log(`Fetched risk id=${riskId} for danger id=${dangerId}`)),
+        catchError(this.handleError<RisqueP>(`getRiskById id=${riskId}`))
+      );
+  }
 
-
-  updateRisk(dangerId: string, riskId: string, riskData: RisqueP): Observable<any> {
-    return this.httpclient.put<any>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`, riskData, this.httpOptions)
+  // Mettre un risque à jour
+  updateRisk(dangerId: string, riskId: string, riskData: RisqueP): Observable<RisqueP> {
+    return this.httpclient.put<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`, riskData, this.httpOptions)
       .pipe(
         tap(_ => console.log(`updated risk id=${riskId}`)),
-        catchError(this.handleError<any>('updateRisk'))
+        catchError(this.handleError<RisqueP>('updateRisk'))
       );
+  }
+
+
+  /** POST: ajouter un risque à une situation dangereuse */
+  addRisk(dangerId: string, risk: RisqueP): Observable<RisqueP> {
+    return this.httpclient.post<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques`, risk, this.httpOptions).pipe(
+      tap((newRisk: RisqueP) => console.log(`Risque ajouté/id=${newRisk.id}`)),
+      catchError(this.handleError<RisqueP>('addRisk'))
+    );
   }
 
 }
