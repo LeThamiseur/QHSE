@@ -10,7 +10,7 @@ const routes: Routes = [
     path:'RP', component : RisquePComponent
   },
   {
-    path:'RP/nv_risque', component : AddRisqueComponent
+    path:'RP/nv_risque/:dangerId/add-risk', component : AddRisqueComponent
   },
   {
     path:'RP/edit_risq/:dangerId/:riskId', component : EditRisqueComponent

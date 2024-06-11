@@ -89,4 +89,13 @@ export class DangRiskService {
       );
   }
 
+
+  /** POST: ajouter un risque à une situation dangereuse */
+  addRisk(dangerId: string, risk: RisqueP): Observable<RisqueP> {
+    return this.httpclient.post<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques`, risk, this.httpOptions).pipe(
+      tap((newRisk: RisqueP) => console.log(`Risque ajouté/id=${newRisk.id}`)),
+      catchError(this.handleError<RisqueP>('addRisk'))
+    );
+  }
+
 }

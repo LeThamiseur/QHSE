@@ -55,6 +55,40 @@ server.put('/dangers/:dangerId/risques/:risqueId', (req, res) => {
   }
 });
 
+// Route personnalisée pour ajouter un risque
+server.post('/dangers/:dangerId/risques', (req, res) => {
+  const dangerId = parseInt(req.params.dangerId);
+  const newRisk = req.body;
+
+  const db = router.db; // Obtenez une instance de la base de données
+  const dangers = db.get('dangers').value();
+
+  // Trouver le danger correspondant
+  const danger = dangers.find(d => d.id === dangerId);
+  if (!danger) {
+    return res.status(404).send('Danger not found');
+  }
+
+  if (danger) {
+    // Ajouter l'ID unique pour le risque
+    const newRiskId = danger.risques.length > 0 ? Math.max(...danger.risques.map(r => r.id)) + 1 : 1;
+    newRisk.id = newRiskId;
+    danger.risques.push(newRisk);
+
+    // Mettre à jour la base de données
+    db.get('dangers')
+      .find({ id: dangerId })
+      .assign({ risques: danger.risques })
+      .write();
+
+    return res.status(201).jsonp(newRisk);
+  }
+  else {
+    return res.status(404).send('Danger non trouvé');
+  }
+
+});
+
 server.use(router);
 
 server.listen(3000, () => {

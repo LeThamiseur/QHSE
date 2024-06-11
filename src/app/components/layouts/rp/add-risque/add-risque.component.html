@@ -33,41 +33,54 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-3">Informations sur le risque</h5>
-            <form>
+            <form (ngSubmit)="onSubmit()" #riskForm="ngForm">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="risque" placeholder="risque" />
+                    <input type="text" class="form-control" id="risque" placeholder="risque" [(ngModel)]="newRisk.nomR" required name="nomR"/>
                     <label for="risque">Risque</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="f_expo" placeholder="Fréquence d'exposition (F)"/>
+                    <input type="number" class="form-control" id="f_expo" placeholder="Fréquence d'exposition (F)" [(ngModel)]="newRisk.frequence" required name="frequence"/>
                     <label for="f_expo">Fréquence d'exposition (F)</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="gravity" placeholder="Gravité"/>
+                    <input type="number" class="form-control" id="gravity" placeholder="Gravité" [(ngModel)]="newRisk.gravity" required name="gravity" />
                     <label for="gravity">Gravité</label>
                   </div>
                 </div>
+
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Situation dangereuse</option>
-                      <option value="1">Situation</option>
-                      <option value="2">Situation</option>
-                      <option value="3">Situation</option>
-                    </select>
+                    <textarea class="form-control" id="preventiveMes" rows="3" placeholder="Décrire une mesure" [(ngModel)]="newRisk.preventiveMes" name="preventiveMes"></textarea>
+                    <!-- <input type="text" class="form-control" id="preventiveMes" name="preventiveMes" placeholder="Mesures Préventives" [(ngModel)]="newRisk.preventiveMes" required /> -->
+                    <label for="preventiveMes">Mesures Préventives</label>
                   </div>
                 </div>
+
+                <!-- <div class="col-md-6">
+                  <div class="form-floating mb-2">
+                    <label for="danger">{{situation}}</label>
+                  </div>
+                </div> -->
+
+
+
+                <div class="mb-3">
+                  <label for="danger" class="form-label"><h4>{{situation}}</h4></label>
+                </div>
+
+
+
                 <div class="col-12">
                   <div class="d-md-flex align-items-center mt-3">
 
                     <div class="ms-auto mt-3 mt-md-0">
-                      <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                      <button type="submit" class="btn btn-info font-medium rounded-pill px-4" [disabled]="riskForm.invalid" >
                         <div class="d-flex align-items-center">
                           Ajouter
                         </div>

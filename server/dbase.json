@@ -197,6 +197,13 @@
           "frequence": 4,
           "gravity": 3,
           "preventiveMes": " mesures "
+        },
+        {
+          "nomR": "test",
+          "frequence": 1,
+          "gravity": 1,
+          "preventiveMes": "dffdd",
+          "id": 3
         }
       ]
     },
@@ -209,20 +216,42 @@
           "id": 1,
           "nomR": "Intoxication",
           "frequence": 2,
-          "gravity": 4,
+          "gravity": 3,
           "preventiveMes": " mesures "
         },
         {
           "id": 2,
           "nomR": "Brûlures chimiques",
-          "frequence": 2,
+          "frequence": 1,
           "gravity": 3,
           "preventiveMes": " mesures "
         }
       ]
     },
     {
-      "risques": [],
+      "risques": [
+        {
+          "nomR": "test",
+          "frequence": 2,
+          "gravity": 3,
+          "preventiveMes": "trvdvddvd sfgse",
+          "id": 1
+        },
+        {
+          "nomR": "test2",
+          "frequence": 3,
+          "gravity": 1,
+          "preventiveMes": "grgrhh-h",
+          "id": 2
+        },
+        {
+          "nomR": "test",
+          "frequence": 4,
+          "gravity": 4,
+          "preventiveMes": "tyjyj",
+          "id": 3
+        }
+      ],
       "libelle": "Câblage défectueux ",
       "description": "sgfgrnbg hjfhy",
       "id": 3
