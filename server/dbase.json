@@ -231,30 +231,38 @@
     {
       "risques": [
         {
-          "nomR": "test",
+          "nomR": "Brûlure, blessures, coupures",
           "frequence": 2,
-          "gravity": 3,
-          "preventiveMes": "trvdvddvd sfgse",
-          "id": 1
-        },
-        {
-          "nomR": "test2",
-          "frequence": 3,
           "gravity": 1,
-          "preventiveMes": "grgrhh-h",
-          "id": 2
-        },
-        {
-          "nomR": "test",
-          "frequence": 4,
-          "gravity": 4,
-          "preventiveMes": "tyjyj",
-          "id": 3
+          "preventiveMes": "Port des EPIs nécessaires et adéquats au poste de travail (casques, lunettes et chaussures de sécurité, masque de protection, bouchon d'oreilles, tenue de travail, cagoule, gants, ...",
+          "id": 1
         }
       ],
-      "libelle": "Câblage défectueux ",
-      "description": "sgfgrnbg hjfhy",
+      "libelle": "Débitage et meulage des éléments",
+      "description": "les éléments peuvent se mélanger lors de la préfabrication",
       "id": 3
+    }
+  ],
+  "dotations": [
+    {
+      "id": 1,
+      "date": "2023-06-11",
+      "nom_beneficiaire": "Jean Dupont",
+      "service": "Informatique",
+      "fonction": "Technicien",
+      "metier": "Support",
+      "dateR": "",
+      "id_Equi": [1,2]
+    },
+    {
+      "id": 2,
+      "date": "2023-06-12",
+      "nom_beneficiaire": "Marie Curie",
+      "service": "Recherche",
+      "fonction": "Scientifique",
+      "metier": "Chimie",
+      "dateR" : "2024-06-30",
+      "id_Equi": [1,3]
     }
   ]
 }

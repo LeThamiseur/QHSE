@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Equipement } from '../models/equipement';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Dotation } from '../models/dotation';
 
 @Injectable({
   providedIn: 'root'
@@ -72,4 +73,44 @@ export class EquipementService {
       return of(result as T);
     };
   }
+
+  //dotation
+
+  getDotation(): Observable<Dotation[]> {
+    return this.httpClient.get<Dotation[]>(`${this.apiUrl}/dotations/`)
+    .pipe(
+      tap(_=> console.log("List de dotation récupérée")),
+      catchError(this.handleError<Dotation[]>('getDotation', []))
+    );
+  }
+
+  getDotationById(id: string): Observable<Dotation> {
+    return this.httpClient.get<Dotation>(`${this.apiUrl}/dotations/${id}`)
+      .pipe(
+        tap(_ => console.log(`Dotation récupérée id=${id}`)),
+        catchError(this.handleError<Dotation>(`getDotation id=${id}`))
+      );
+  }
+
+
+  getCombinedData(): Observable<any[]> {
+    return forkJoin([
+      this.getDotation(),
+      this.getEquipementList([])
+    ]).pipe(
+      map(([dotations, equipements]) =>
+        dotations.map(dotation => {
+          const equipementList = dotation.id_Equi.map(id =>
+            equipements.find(e => e.id === id)
+          );
+          return {
+            dotation: dotation,
+            equipements: equipementList
+          };
+        })
+      )
+    );
+      }
+
+
 }

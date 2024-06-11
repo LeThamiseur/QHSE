@@ -89,6 +89,36 @@ server.post('/dangers/:dangerId/risques', (req, res) => {
 
 });
 
+// Route personnalisée pour supprimer un risque spécifique d'une situation dangereuse
+server.delete('/dangers/:dangerId/risques/:risqueId', (req, res) => {
+  const dangerId = parseInt(req.params.dangerId);
+  const risqueId = parseInt(req.params.risqueId);
+
+  const dangers = router.db.get('dangers').value();
+  const danger = dangers.find(d => d.id == dangerId);
+
+  if (danger) {
+    const risqueIndex = danger.risques.findIndex(r => r.id == risqueId);
+    if (risqueIndex !== -1) {
+      // Supprimer le risque de la liste
+      danger.risques.splice(risqueIndex, 1);
+
+      // Mettre à jour la base de données
+      router.db.get('dangers')
+        .find({ id: dangerId })
+        .assign({ risques: danger.risques })
+        .write();  // Assurez-vous d'appeler write() pour sauvegarder les modifications
+
+      return res.status(204).send();  // Réponse avec succès sans contenu
+    } else {
+      return res.status(404).send('Risque non trouvé');
+    }
+  } else {
+    return res.status(404).send('Danger non trouvé');
+  }
+});
+
+
 server.use(router);
 
 server.listen(3000, () => {

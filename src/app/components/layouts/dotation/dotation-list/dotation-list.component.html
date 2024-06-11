@@ -48,24 +48,25 @@
                       <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Bénéficiaire </h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Date de dotation</h6></th>
-                      <th><h6 class="fs-4 fw-semibold mb-0">Equipement</h6></th>
+                      <!-- <th><h6 class="fs-4 fw-semibold mb-0">Equipement</h6></th> -->
                       <th><h6 class="fs-4 fw-semibold mb-0">Retour</h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Retour de dotation</h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Action</h6></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr *ngFor="let item of combinedData; let i = index">
                       <td>
-                        1
+                        {{i+1}}
                       </td>
-                      <td><p class="mb-0 fw-normal">Nom_bénéficiaire</p></td>
-                      <td><p class="mb-0 fw-normal">12/10/2023</p></td>
-                      <td><p class="mb-0 fw-normal">Nom_Equipement</p></td>
+                      <!-- <td><p class="mb-0 fw-normal">{{histo.dotation.nom_beneficiaire}}</p></td> -->
+                      <td><p class="mb-0 fw-normal">{{ item.dotation.nom_beneficiaire }}</p></td>
+                      <td><p class="mb-0 fw-normal">{{ item.dotation.date }}</p></td>
+                      <!-- <td><p class="mb-0 fw-normal">Nom_Equipement</p></td> -->
                       <td>
                         <span class="badge bg-light-success rounded-3 py-8 text-success fw-semibold fs-2">confirmé</span>
                       </td>
-                      <td><p class="mb-0 fw-normal">01/02/2024</p></td>
+                      <td><p class="mb-0 fw-normal">{{item.dotation.dateR}}</p></td>
                       <td>
                         <div class="dropdown dropstart">
                           <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,7 +74,7 @@
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/voir_dotation"><i class="fa-regular fa-eye"></i>Voir</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/voir_dotation/{{item.dotation.id}}"><i class="fa-regular fa-eye"></i>Voir</a>
                             </li>
                             <li>
                               <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/edit_dotation"><i class="fs-4 ti ti-edit"></i>Modifier</a>
@@ -85,7 +86,7 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                       <td>
                         1
                       </td>
@@ -144,9 +145,28 @@
                           </ul>
                         </div>
                       </td>
-                    </tr>
+                    </tr> -->
 
+                    <!-- cette parti permet juste de vérifier -->
+                    
+                    <!-- <div *ngFor="let item of combinedData">
+                      <h3>Dotation</h3>
+                      <p>ID: {{ item.dotation.id }}</p>
+                      <p>Date: {{ item.dotation.date }}</p>
+                      <p>Bénéficiare: {{ item.dotation.nom_beneficiaire }}</p>
+                      <p>Service: {{ item.dotation.service }}</p>
+                      <p>Fonction: {{ item.dotation.fonction }}</p>
+                      <p>Metier: {{ item.dotation.metier }}</p>
+                      <p>DateR: {{ item.dotation.dateR }}</p>
 
+                      <h3>Equipements</h3>
+                      <div *ngFor="let equipement of item.equipements">
+                        <p>Abreviation: {{ equipement.abreviation }}</p>
+                        <p>Désignation: {{ equipement.designation }}</p>
+                        <p>Utilité: {{ equipement.Utility }}</p>
+                        <p>Quantité: {{ equipement.Quantite }}</p>
+                      </div>
+                    </div> -->
 
                   </tbody>
                 </table>

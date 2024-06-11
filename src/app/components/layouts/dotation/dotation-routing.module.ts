@@ -21,7 +21,7 @@ const routes: Routes = [
     path:'dotation/edit_dotation', component : EditDotationComponent
   },
   {
-    path:'dotation/voir_dotation', component : VoirDotationComponent
+    path:'dotation/voir_dotation/:id', component : VoirDotationComponent
   }
 ];
 
