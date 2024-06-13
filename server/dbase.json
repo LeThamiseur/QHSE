@@ -252,7 +252,12 @@
       "fonction": "Technicien",
       "metier": "Support",
       "dateR": "",
-      "id_Equi": [1,2]
+      "id_Equi": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id": 2,
@@ -261,8 +266,37 @@
       "service": "Recherche",
       "fonction": "Scientifique",
       "metier": "Chimie",
-      "dateR" : "2024-06-30",
-      "id_Equi": [1,3]
+      "dateR": "2024-06-30",
+      "id_Equi": [
+        1,
+        3
+      ]
+    },
+    {
+      "id_Equi": [
+        3,
+        4,
+        5
+      ],
+      "service": "Peinture",
+      "date": "2024-06-13",
+      "nom_beneficiaire": "Tamo Alphonse",
+      "fonction": "Manoeuvre",
+      "metier": "Soudure",
+      "id": 3
+    },
+    {
+      "id_Equi": [
+        1,
+        3,
+        4
+      ],
+      "service": "Travail en hauteur",
+      "date": "2024-06-13",
+      "nom_beneficiaire": "Tamo Boris",
+      "fonction": "Branleur",
+      "metier": "Soudure",
+      "id": 4
     }
   ]
 }

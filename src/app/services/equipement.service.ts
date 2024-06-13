@@ -40,7 +40,7 @@ export class EquipementService {
   //   );
   // }
 
-  deleteEquip(id: string): Observable<Equipement> {
+  deleteEquip(id: number): Observable<Equipement> {
     return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
       tap(_ => console.log(`deleted equipement id=${id}`)),
       catchError(this.handleError<Equipement>('deleteEquip'))
@@ -82,6 +82,11 @@ export class EquipementService {
       tap(_=> console.log("List de dotation récupérée")),
       catchError(this.handleError<Dotation[]>('getDotation', []))
     );
+  }
+
+  /** POST: ajouter une déclaration*/
+  addDotation(dotation: Dotation): Observable<Dotation> {
+    return this.httpClient.post<Dotation>(`${this.apiUrl}/dotations`, dotation);
   }
 
   getDotationById(id: string): Observable<Dotation> {
