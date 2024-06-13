@@ -147,14 +147,14 @@
       "abreviation": "CP",
       "designation": "Casque de Protection",
       "Utility": "Diminue l'impact d'un choc reçu à la tête",
-      "Quantite": 10
+      "Quantite": 8
     },
     {
       "id": 2,
       "abreviation": "BS",
       "designation": "Bottes de protection",
       "Utility": "Protège les pieds des chocs ",
-      "Quantite": 10
+      "Quantite": 9
     },
     {
       "id": 3,
@@ -168,14 +168,14 @@
       "abreviation": "LP",
       "designation": "Lunette de protetion",
       "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
-      "Quantite": 14
+      "Quantite": 0
     },
     {
       "id": 5,
       "abreviation": "EQtest",
       "designation": "Equipement de test",
       "Utility": "xdvdd",
-      "Quantite": 2
+      "Quantite": 0
     }
   ],
   "dangers": [
@@ -274,27 +274,26 @@
     },
     {
       "id_Equi": [
-        3,
+        1,
+        2,
         4,
         5
       ],
-      "service": "Peinture",
+      "service": "Tyauterie",
       "date": "2024-06-13",
-      "nom_beneficiaire": "Tamo Alphonse",
-      "fonction": "Manoeuvre",
+      "nom_beneficiaire": "Tamo Boris",
+      "fonction": "Chef de site",
       "metier": "Soudure",
       "id": 3
     },
     {
       "id_Equi": [
-        1,
-        3,
-        4
+        1
       ],
-      "service": "Travail en hauteur",
+      "service": "Peinture",
       "date": "2024-06-13",
-      "nom_beneficiaire": "Tamo Boris",
-      "fonction": "Branleur",
+      "nom_beneficiaire": "Zambo Steve",
+      "fonction": "Manoeuvre",
       "metier": "Soudure",
       "id": 4
     }

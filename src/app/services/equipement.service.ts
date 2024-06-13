@@ -60,6 +60,15 @@ export class EquipementService {
     );
   }
 
+  // Méthode pour mettre à jour la quantité d'un équipement
+  updateEquipementQuantity(id: number, quantity: number): Observable<Equipement> {
+    const url = `${this.apiUrl}/equipements/${id}`;
+    return this.httpClient.patch<Equipement>(url, { Quantite: quantity }, this.httpOptions).pipe(
+      tap(_ => console.log(`updated equipment id=${id} with new quantity=${quantity}`)),
+      catchError(this.handleError<Equipement>('updateEquipementQuantity'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

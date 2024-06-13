@@ -11,7 +11,9 @@ import { Dotation } from '../../../../models/dotation';
 export class AddDotationComponent {
   equipementList : Equipement [] = [];
   selectedEquipements: number[] = [];
-  dotationData: Dotation = new Dotation()
+  dotationData: Dotation = new Dotation();
+  successMsg: string = '';
+  errorMsg: string= '';
 
   constructor(private equipementService : EquipementService) {}
 
@@ -33,20 +35,51 @@ export class AddDotationComponent {
         return equipement ? equipement.designation : '';
       }
 
-      onSubmit(): void {
-        this.dotationData.id_Equi = this.selectedEquipements;
-        console.log('Selected Equipement IDs', this.selectedEquipements);
+    onSubmit(): void {
 
-        this.equipementService.addDotation(this.dotationData).subscribe(response => {
-          console.log('dotation enregistrée', response);
-          this.dotationData = new Dotation();
-        }, error =>{
-          console.error('Erreur', error)
-        })
-        // const selectedEquipementIds = this.selectedEquipements;
-        // console.log('Selected Equipement IDs', selectedEquipementIds);
-
-        // Ajoutez votre logique de soumission ici, par exemple :
-        // Envoyez les IDs sélectionnés à votre service ou API
+      // Vérifiez d'abord toutes les quantités
+        for (let id of this.selectedEquipements) {
+        const equipement = this.equipementList.find(e => e.id === id);
+        if (equipement && equipement.Quantite <= 0) {
+          this.errorMsg = `L'équipement ${equipement.designation} n'est pas disponible.`;
+          return; // Stopper le processus si une quantité est insuffisante
+        }
       }
+
+    // Si toutes les quantités sont suffisantes, procédez à la mise à jour et à l'ajout de la dotation
+          this.selectedEquipements.forEach(id => {
+        const equipement = this.equipementList.find(e => e.id === id);
+        if (equipement) {
+          const newQuantity = equipement.Quantite - 1;
+          this.equipementService.updateEquipementQuantity(id, newQuantity).subscribe(updatedEquip => {
+            console.log(`Quantité de l'équipement id=${id} mise à jour à ${newQuantity}`);
+            // Mettez à jour la quantité dans la liste locale pour éviter une nouvelle requête de récupération
+            equipement.Quantite = newQuantity;
+          }, error => {
+            console.error('Erreur de mise à jour de la quantité', error);
+            this.errorMsg = `Erreur de mise à jour de la quantité pour l'équipement ${equipement.designation}.`;
+          });
+        }
+      });
+
+
+      this.dotationData.id_Equi = this.selectedEquipements;
+      // Ajoutez la dotation
+      this.equipementService.addDotation(this.dotationData).subscribe(() => {
+        console.log('Dotation ajoutée avec succès');
+        this.dotationData = new Dotation();
+        this.selectedEquipements = [];
+        this.successMsg = 'Dotation effectuée avec succès'
+        this.errorMsg = '';
+      }, error => {
+        console.error('Erreur lors de l\'ajout de la dotation', error);
+        this.errorMsg = 'Erreur lors de l\'ajout de la dotation.';
+      });
+
+    }
+
+
 }
+
+
+
