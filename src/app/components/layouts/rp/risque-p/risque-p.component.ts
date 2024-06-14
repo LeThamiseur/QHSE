@@ -10,15 +10,26 @@ import { SituationD } from '../../../../models/situation-D';
 export class RisquePComponent {
 
   situationDList : SituationD [] =[];
-  // filteredSDList : SituationD [] = [];
-  // msg = ''
+
 
   constructor(private dangRiskSevice : DangRiskService){}
 
   ngOnInit(): void {
     this.dangRiskSevice.getDangRisk(this.situationDList).subscribe(data => {
       this.situationDList = data;
-      // this.filteredSDList = this.situationDList
+    });
+  }
+
+  onDeleteRisk(dangerId: string, riskId: string): void {
+    this.dangRiskSevice.deleteRisk(dangerId, riskId).subscribe(() => {
+      console.log('Risque supprimé avec succès');
+      // Mettre à jour la liste après suppression
+      this.situationDList = this.situationDList.map(situation => {
+        if (situation.id === dangerId) {
+          situation.risques = situation.risques.filter(risk => risk.id !== riskId);
+        }
+        return situation;
+      });
     });
   }
 

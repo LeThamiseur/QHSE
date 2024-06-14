@@ -3,10 +3,14 @@
 import { User } from "./user";
 
 export class Dotation {
-  id!: number;
+  id!: string;
   service!: string;
-  date!: Date;
-  nom_prenom_beneficiaire!: string;
+  date!: string;
+  nom_beneficiaire!: string;
   fonction!: string;
-  user !: User;
+  metier ! : string;
+  retour : boolean = false;
+  id_Equi: number[]= []
+
+  // user !: User;
 }

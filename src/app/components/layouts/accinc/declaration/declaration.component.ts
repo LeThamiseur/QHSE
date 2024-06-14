@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Accinc } from '../../../../models/accinc';
 import { AccincService } from '../../../../services/accinc.service';
 import { ActivatedRoute } from '@angular/router';
+import { GenPdfService } from '../../../../services/gen-pdf.service';
 // import html2pdf from 'html2pdf.js'
 
 @Component({
@@ -13,7 +14,7 @@ export class DeclarationComponent {
 
   @Input() accinc?: Accinc;
 
-  constructor(private accincservice: AccincService, private route: ActivatedRoute){}
+  constructor(private accincservice: AccincService, private route: ActivatedRoute, private genPdf : GenPdfService){}
 
   ngOnInit(): void {
     this.getAcc();
@@ -34,10 +35,7 @@ export class DeclarationComponent {
 
   // download function
   downloadForm() {
-    this.accincservice.generatePdf('pdfContent',`declaration ${this.accinc?.nom_AccInc}`);
-    // const elt = document.getElementById('pdfContent');
-    // html2pdf()
-    //       .from (elt)
-    //       .save('formulaire.pdf');
+    this.genPdf.generatePdf('pdfContent',`declaration ${this.accinc?.nom_AccInc}`);
+    
   }
 }

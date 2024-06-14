@@ -71,6 +71,7 @@ export class DangRiskService {
     };
   }
 
+  //Risque
 // afficher un risque
   getRiskById(dangerId: string, riskId: string): Observable<RisqueP> {
     return this.httpclient.get<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`)
@@ -95,6 +96,14 @@ export class DangRiskService {
     return this.httpclient.post<RisqueP>(`${this.apiUrl}/dangers/${dangerId}/risques`, risk, this.httpOptions).pipe(
       tap((newRisk: RisqueP) => console.log(`Risque ajouté/id=${newRisk.id}`)),
       catchError(this.handleError<RisqueP>('addRisk'))
+    );
+  }
+
+  /** DELETE: supprimer un risque d'une situation dangereuse */
+  deleteRisk(dangerId: string, riskId: string): Observable<void> {
+    return this.httpclient.delete<void>(`${this.apiUrl}/dangers/${dangerId}/risques/${riskId}`, this.httpOptions).pipe(
+      tap(_ => console.log(`Risque supprimé/id=${riskId}`)),
+      catchError(this.handleError<void>('deleteRisk'))
     );
   }
 

@@ -33,35 +33,35 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-3">Informations sur la dotation</h5>
-            <form>
+            <form (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="Service" placeholder="Service" value="Service name" />
+                    <input type="text" class="form-control" id="Service" placeholder="Service" [(ngModel)]="dotationData.service" name="service" />
                     <label for="Service">Service</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="dateD" placeholder="Date de dotation" value="2024-02-10"/>
+                    <input type="date" class="form-control" id="dateD" placeholder="Date de dotation" [(ngModel)]="dotationData.date" name="date"/>
                     <label for="dateD">Date de dotation</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nom (s) et prenom (s)" value="Nom Prénom"/>
+                    <input type="text" class="form-control" id="name" placeholder="Nom (s) et prenom (s)" [(ngModel)]="dotationData.nom_beneficiaire" name="nom"/>
                     <label for="name">Nom (s) et prenom (s)</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="fonction" value="Fonction employé"/>
+                    <input type="text" class="form-control" id="fonction" [(ngModel)]="dotationData.fonction" name="fonction"/>
                     <label for="fonction">fonction</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="ext" class="form-control" id="metier" placeholder="metier" value="metier employé"/>
+                    <input type="ext" class="form-control" id="metier" placeholder="metier" [(ngModel)]="dotationData.metier" name="metier"/>
                     <label for="metier">metier</label>
                   </div>
                 </div>
@@ -70,44 +70,11 @@
                   <label for="equipement"><b>Equipement (s)</b></label>
                   <div class="form-floating mb-3">
 
-                    <div class="scrollable-list border border-secondary mt-3 form-control">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox1">
-                        <label class="form-check-label" for="checkbox1">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2" checked>
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2" checked>
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2" checked>
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <!-- Ajoutez plus de cases à cocher si nécessaire -->
+                    <div class="form-group">
+                      <label for="equipements">Equipements</label>
+                      <select id="equipements" multiple  class="form-control">
+                        <option selected disabled *ngFor="let equip of equipementList" [value]="equip.id">{{ equip.designation }}</option>
+                      </select>
                     </div>
 
                   </div>
@@ -130,6 +97,8 @@
                 </div>
               </div>
             </form>
+            <p *ngIf="successMsg" class="alert alert-success">{{ successMsg }}</p>
+            <p *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</p>
           </div>
         </div>
 

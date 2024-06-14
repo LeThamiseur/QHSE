@@ -7,6 +7,7 @@ import { AddDotationComponent } from './add-dotation/add-dotation.component';
 import { DotationBackComponent } from './dotation-back/dotation-back.component';
 import { EditDotationComponent } from './edit-dotation/edit-dotation.component';
 import { VoirDotationComponent } from './voir-dotation/voir-dotation.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { VoirDotationComponent } from './voir-dotation/voir-dotation.component';
   imports: [
     CommonModule,
     DotationRoutingModule,
-    NavbarModule
+    NavbarModule,
+    FormsModule
   ]
 })
 export class DotationModule { }

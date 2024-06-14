@@ -29,39 +29,46 @@
           </div>
         </div>
 
-          <!-- formulaire de dotation -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-3">Informations sur la dotation</h5>
-            <form>
+        <div *ngIf="errorMsg" class="alert alert-danger">
+          {{ errorMsg }}
+        </div>
+        <div *ngIf="successMsg" class="alert alert-success">
+          {{ successMsg }}
+        </div>
+
+        <!-- formulaire de dotation -->
+        <form (ngSubmit)="onSubmit()" #formDirective ="ngForm">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="mb-3">Informations sur la dotation</h5>
               <div class="row">
                 <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="Service" placeholder="Service" />
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Service" placeholder="Service" [(ngModel)]="dotationData.service" name="service"/>
                     <label for="Service">Service</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="dateD" placeholder="Date de dotation"/>
+                    <input type="date" class="form-control" id="dateD" placeholder="Date de dotation" [(ngModel)]="dotationData.date" name="dateD"/>
                     <label for="dateD">Date de dotation</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nom (s) et prenom (s)"/>
+                    <input type="text" class="form-control" id="name" placeholder="Nom (s) et prenom (s)" [(ngModel)]="dotationData.nom_beneficiaire" name="name"/>
                     <label for="name">Nom (s) et prenom (s)</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="fonction"/>
+                    <input type="text" class="form-control" id="fonction" [(ngModel)]="dotationData.fonction" name="fonction"/>
                     <label for="fonction">fonction</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="ext" class="form-control" id="metier" placeholder="metier"/>
+                    <input type="text" class="form-control" id="metier" placeholder="metier" [(ngModel)]="dotationData.metier" name="metier"/>
                     <label for="metier">metier</label>
                   </div>
                 </div>
@@ -69,66 +76,28 @@
                 <div class="col-md-6">
                   <label for="equipement"><b>Equipement (s)</b></label>
                   <div class="form-floating mb-3">
-
-                    <div class="scrollable-list border border-secondary mt-3 form-control">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox1">
-                        <label class="form-check-label" for="checkbox1">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">
-                          Désignation équip
-                        </label>
-                      </div>
-                      <!-- Ajoutez plus de cases à cocher si nécessaire -->
-                    </div>
-
+                    <select class="form-select" multiple aria-label="Multiple select example" (change)="onSelect($event)">
+                      <option class="mb-2" *ngFor="let equipement of equipementList" [value]="equipement.id">{{equipement.designation}}</option>
+                    </select>
                   </div>
                 </div>
-                <!-- <div class="col-md-6">
-                  <select multiple class="form-control">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                    <option>Option 4</option>
-                    <option>Option 5</option>
-                  </select>
-                </div> -->
-
-
 
                 <div class="col-12">
-                  <div class="d-md-flex align-items-center mt-3">
+                  <label for="selectedEquipements">Equipements sélectionnés</label>
+                  <div class="form-floating mb-3">
+                    <div class="form-control" id="selectedEquipements">
+                      <div class="mt-1" *ngFor="let equipement of selectedEquipements">
+                        {{ getEquipementDesignation(equipement) }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="col-12">
+                  <input type="hidden" [(ngModel)]="dotationData.id_Equi" name="id_Equi"/>
+                  <div class="d-md-flex align-items-center mt-3">
                     <div class="ms-auto mt-3 mt-md-0">
-                      <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                      <button type="submit" class="btn btn-info font-medium rounded-pill px-4">
                         <div class="d-flex align-items-center">
                           Effectuer
                         </div>
@@ -137,9 +106,9 @@
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
+        </form>
 
       </div>
     </div>

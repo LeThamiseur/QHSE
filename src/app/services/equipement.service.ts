@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Equipement } from '../models/equipement';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Dotation } from '../models/dotation';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class EquipementService {
   //   );
   // }
 
-  deleteEquip(id: string): Observable<Equipement> {
+  deleteEquip(id: number): Observable<Equipement> {
     return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
       tap(_ => console.log(`deleted equipement id=${id}`)),
       catchError(this.handleError<Equipement>('deleteEquip'))
@@ -59,6 +60,15 @@ export class EquipementService {
     );
   }
 
+  // Méthode pour mettre à jour la quantité d'un équipement
+  updateEquipementQuantity(id: number, quantity: number): Observable<Equipement> {
+    const url = `${this.apiUrl}/equipements/${id}`;
+    return this.httpClient.patch<Equipement>(url, { Quantite: quantity }, this.httpOptions).pipe(
+      tap(_ => console.log(`updated equipment id=${id} with new quantity=${quantity}`)),
+      catchError(this.handleError<Equipement>('updateEquipementQuantity'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -72,4 +82,65 @@ export class EquipementService {
       return of(result as T);
     };
   }
+
+  //dotation
+
+  getDotation(): Observable<Dotation[]> {
+    return this.httpClient.get<Dotation[]>(`${this.apiUrl}/dotations/`)
+    .pipe(
+      tap(_=> console.log("List de dotation récupérée")),
+      catchError(this.handleError<Dotation[]>('getDotation', []))
+    );
+  }
+
+  /** POST: ajouter une déclaration*/
+  addDotation(dotation: Dotation): Observable<Dotation> {
+    return this.httpClient.post<Dotation>(`${this.apiUrl}/dotations`, dotation);
+  }
+
+  // getDotationById(id: string): Observable<Dotation> {
+  //   return this.httpClient.get<Dotation>(`${this.apiUrl}/dotations/${id}`)
+  //     .pipe(
+  //       tap(_ => console.log(`Dotation récupérée id=${id}`)),
+  //       catchError(this.handleError<Dotation>(`getDotation id=${id}`))
+  //     );
+  // }
+
+  // méthode delete dotation
+
+deleteDotation(id: number): Observable<Dotation> {
+  return this.httpClient.delete<Dotation>(`${this.apiUrl}/dotations/${id}`, this.httpOptions).pipe(
+    tap(_ => console.log(`deleted dotation id=${id}`)),
+    catchError(this.handleError<Dotation>('deleteDotation'))
+  );
+}
+
+updateDotation(dotation: Dotation): Observable<Dotation> {
+  return this.httpClient.put<Dotation>(`${this.apiUrl}/dotations/${dotation.id}`, dotation, this.httpOptions).pipe(
+    tap(_ => console.log(`Dotation mise à jour id=${dotation.id}`)),
+    catchError(this.handleError<Dotation>('updateDotation'))
+  );
+}
+
+
+  getCombinedData(): Observable<any[]> {
+    return forkJoin([
+      this.getDotation(),
+      this.getEquipementList([])
+    ]).pipe(
+      map(([dotations, equipements]) =>
+        dotations.map(dotation => {
+          const equipementList = dotation.id_Equi.map(id =>
+            equipements.find(e => e.id === id)
+          );
+          return {
+            dotation: dotation,
+            equipements: equipementList
+          };
+        })
+      )
+    );
+      }
+
+
 }

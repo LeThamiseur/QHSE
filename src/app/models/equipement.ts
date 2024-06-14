@@ -1,5 +1,5 @@
 export class Equipement {
-  id!:string;
+  id!:number;
   abreviation!:string;
   designation!: string;
   Utility!: string;

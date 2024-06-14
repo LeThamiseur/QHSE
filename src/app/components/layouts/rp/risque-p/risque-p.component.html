@@ -24,7 +24,6 @@
           <div class="px-4 py-3 border-bottom col">
             <div class="row">
               <div class="col">
-                <a type="button" routerLink="/RP/nv_risque" class="btn btn-outline-primary mx-1 "><i class="fa-solid fa-plus me-2"></i>Enregistrer risque</a>
               </div>
             <!-- zone de recherche -->
                 <div class="col-5">
@@ -75,7 +74,7 @@
                       <td ><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">Elevé</p></td>
                       <td>
                         <tr *ngFor="let risk of situation.risques">
-                          <a class="align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i></a>
+                          <a class="align-items-center gap-3" type="button" (click)="onDeleteRisk(situation.id, risk.id)"><i class="fs-4 ti ti-trash"></i></a>
                         </tr>
                       </td>
 
