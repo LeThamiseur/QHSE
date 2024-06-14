@@ -18,7 +18,7 @@ const routes: Routes = [
     path:'dotation/retour_dotation', component : DotationBackComponent
   },
   {
-    path:'dotation/edit_dotation', component : EditDotationComponent
+    path:'dotation/edit_dotation/:id', component : EditDotationComponent
   },
   {
     path:'dotation/voir_dotation/:id', component : VoirDotationComponent

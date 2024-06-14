@@ -66,7 +66,7 @@
                       <td>
                         <span class="badge bg-light-success rounded-3 py-8 text-success fw-semibold fs-2">confirmé</span>
                       </td>
-                      <td><p class="mb-0 fw-normal">{{item.dotation.dateR}}</p></td>
+                      <td><p class="mb-0 fw-normal">{{item.dotation.retour}}</p></td>
                       <td>
                         <div class="dropdown dropstart">
                           <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,10 +77,10 @@
                               <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/voir_dotation/{{item.dotation.id}}"><i class="fa-regular fa-eye"></i>Voir</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/edit_dotation"><i class="fs-4 ti ti-edit"></i>Modifier</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/edit_dotation/{{item.dotation.id}}"><i class="fs-4 ti ti-edit"></i>Modifier</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" href="#"><i class="fs-4 ti ti-trash"></i>Supprimer</a>
+                              <a class="dropdown-item d-flex align-items-center gap-3" (click)="onDeleteDotation(item.dotation.id)"><i class="fs-4 ti ti-trash"></i>Supprimer</a>
                             </li>
                           </ul>
                         </div>
@@ -148,7 +148,7 @@
                     </tr> -->
 
                     <!-- cette parti permet juste de vérifier -->
-                    
+
                     <!-- <div *ngFor="let item of combinedData">
                       <h3>Dotation</h3>
                       <p>ID: {{ item.dotation.id }}</p>

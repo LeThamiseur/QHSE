@@ -147,21 +147,21 @@
       "abreviation": "CP",
       "designation": "Casque de Protection",
       "Utility": "Diminue l'impact d'un choc reçu à la tête",
-      "Quantite": 8
+      "Quantite": 1
     },
     {
       "id": 2,
       "abreviation": "BS",
       "designation": "Bottes de protection",
       "Utility": "Protège les pieds des chocs ",
-      "Quantite": 9
+      "Quantite": 2
     },
     {
       "id": 3,
       "abreviation": "GP",
       "designation": "Gant de protection",
       "Utility": "Protège les mains des chocs, brulûre, corrosion",
-      "Quantite": 15
+      "Quantite": 8
     },
     {
       "id": 4,
@@ -248,10 +248,10 @@
       "id": 1,
       "date": "2023-06-11",
       "nom_beneficiaire": "Jean Dupont",
-      "service": "Informatique",
+      "service": "Tyauterie",
       "fonction": "Technicien",
       "metier": "Support",
-      "dateR": "",
+      "retour": "false",
       "id_Equi": [
         1,
         2,
@@ -266,7 +266,7 @@
       "service": "Recherche",
       "fonction": "Scientifique",
       "metier": "Chimie",
-      "dateR": "2024-06-30",
+      "retour": "true",
       "id_Equi": [
         1,
         3
@@ -275,25 +275,26 @@
     {
       "id_Equi": [
         1,
-        2,
-        4,
-        5
+        3
       ],
       "service": "Tyauterie",
       "date": "2024-06-13",
       "nom_beneficiaire": "Tamo Boris",
       "fonction": "Chef de site",
       "metier": "Soudure",
+      "retour": "false",
       "id": 3
     },
     {
+      "retour": false,
       "id_Equi": [
-        1
+        1,
+        2
       ],
-      "service": "Peinture",
-      "date": "2024-06-13",
+      "service": "Tyauterie",
+      "date": "2024-06-14",
       "nom_beneficiaire": "Zambo Steve",
-      "fonction": "Manoeuvre",
+      "fonction": "Chef de site",
       "metier": "Soudure",
       "id": 4
     }

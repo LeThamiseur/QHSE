@@ -98,13 +98,29 @@ export class EquipementService {
     return this.httpClient.post<Dotation>(`${this.apiUrl}/dotations`, dotation);
   }
 
-  getDotationById(id: string): Observable<Dotation> {
-    return this.httpClient.get<Dotation>(`${this.apiUrl}/dotations/${id}`)
-      .pipe(
-        tap(_ => console.log(`Dotation récupérée id=${id}`)),
-        catchError(this.handleError<Dotation>(`getDotation id=${id}`))
-      );
-  }
+  // getDotationById(id: string): Observable<Dotation> {
+  //   return this.httpClient.get<Dotation>(`${this.apiUrl}/dotations/${id}`)
+  //     .pipe(
+  //       tap(_ => console.log(`Dotation récupérée id=${id}`)),
+  //       catchError(this.handleError<Dotation>(`getDotation id=${id}`))
+  //     );
+  // }
+
+  // méthode delete dotation
+
+deleteDotation(id: number): Observable<Dotation> {
+  return this.httpClient.delete<Dotation>(`${this.apiUrl}/dotations/${id}`, this.httpOptions).pipe(
+    tap(_ => console.log(`deleted dotation id=${id}`)),
+    catchError(this.handleError<Dotation>('deleteDotation'))
+  );
+}
+
+updateDotation(dotation: Dotation): Observable<Dotation> {
+  return this.httpClient.put<Dotation>(`${this.apiUrl}/dotations/${dotation.id}`, dotation, this.httpOptions).pipe(
+    tap(_ => console.log(`Dotation mise à jour id=${dotation.id}`)),
+    catchError(this.handleError<Dotation>('updateDotation'))
+  );
+}
 
 
   getCombinedData(): Observable<any[]> {
