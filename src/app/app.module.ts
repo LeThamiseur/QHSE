@@ -13,10 +13,12 @@ import { EquipementsModule } from './components/layouts/equipements/equipements.
 import { NotFoundModule } from './components/layouts/not-found/not-found.module';
 import { RpModule } from './components/layouts/rp/rp.module';
 import { SituationDModule } from './components/layouts/situation-d/situation-d.module';
+import { UniteTravModule } from './components/layouts/unite-trav/unite-trav.module';
+import { PprModule } from './components/layouts/ppr/ppr.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,9 @@ import { SituationDModule } from './components/layouts/situation-d/situation-d.m
     EquipementsModule,
     RpModule,
     SituationDModule,
-    NotFoundModule
+    UniteTravModule,
+    PprModule,
+    NotFoundModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -292,11 +292,29 @@
         2
       ],
       "service": "Tyauterie",
-      "date": "2024-06-14",
+      "date": "2024-06-15",
       "nom_beneficiaire": "Zambo Steve",
       "fonction": "Chef de site",
       "metier": "Soudure",
       "id": 4
+    }
+  ],
+  "Unite_Travail": [
+    {
+      "id_UT": 1,
+      "nom_UT": "Unité A",
+      "id_DocU": 1
+    },
+    {
+      "id_UT": 2,
+      "nom_UT": "Unité B",
+      "id_DocU": 2
+    }
+  ],
+  "Doc_U": [
+    {
+      "id_DocU": 1,
+      "nom_DocU": "DUER Entreprise"
     }
   ]
 }

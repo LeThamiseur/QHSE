@@ -10,6 +10,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AccincService {
 
+  // private apiU = 'http://qhse-api.runasp.net/api/situation';
+
   private apiUrl = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
