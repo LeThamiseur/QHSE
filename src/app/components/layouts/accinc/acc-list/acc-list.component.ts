@@ -40,9 +40,9 @@ export class AccListComponent {
       return;
     }
     this.filteredAccincList = this.accincList.filter(
-      accInc => accInc?.nom_AccInc.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
-                accInc?.victime.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
-                accInc.typeContrat.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+      accInc => accInc?.type.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+                // accInc?.victime.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+                accInc.contract.toLocaleLowerCase().includes(text.toLocaleLowerCase())
     )
   }
 

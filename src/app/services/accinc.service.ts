@@ -10,17 +10,18 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AccincService {
 
-  // private apiU = 'http://qhse-api.runasp.net/api/situation';
+  // private apiUrl = 'http://qhse-api.runasp.net/api/situation';
+  private apiUrl = 'api/situation';
 
-  private apiUrl = 'http://localhost:3000';
+  // private apiUrl = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(private httpclient: HttpClient) {}
 
- getAccIncList(accinc:Accinc[]): Observable<Accinc[]> {
-    return this.httpclient.get<Accinc[]>(`${this.apiUrl}/acc_inc`)
+  getAccIncList(accinc:Accinc[]): Observable<Accinc[]> {
+    return this.httpclient.get<Accinc[]>(this.apiUrl)
     .pipe(
       tap(_ => console.log('AccIncList récupérée')),
       catchError(this.handleError<Accinc[]>('getAccIncList', []))
@@ -29,28 +30,91 @@ export class AccincService {
 
   // voir une déclaration
   getAccincByID(id: string): Observable<Accinc> {
-    return this.httpclient.get<Accinc>(`${this.apiUrl}/acc_inc/${id}`);
+    return this.httpclient.get<Accinc>(`${this.apiUrl}/${id}`);
   }
 
   /** PUT: modifier une déclaration  */
+
   updateAccinc(accinc: Accinc): Observable<Accinc> {
-    return this.httpclient.put<Accinc>(`${this.apiUrl}/acc_inc/${accinc.id}`, accinc, this.httpOptions).pipe(
+    return this.httpclient.put<Accinc>(`${this.apiUrl}/${accinc.id}`, accinc, this.httpOptions).pipe(
       tap(_ =>console.log(`updated AccInc id=${accinc.id}`)),
       catchError(this.handleError<Accinc>('AccInc'))
     );
   }
+
+  /** POST: ajouter une déclaration*/
+
+  addAccident(accidentData: Accinc): Observable<Accinc> {
+    // const data : Accinc = {
+    //   id : accidentData.id,
+    //   type : accidentData.type,
+    //   nature : accidentData.nature,
+    //   locationAccident: accidentData.locationAccident,
+    //   dateAccident : accidentData.dateAccident,
+    //   description : accidentData.description,
+    //   timeAccident: accidentData.timeAccident,
+    //   task: accidentData.task,
+    //   consequence: accidentData.consequence,
+    //   dommage: accidentData.dommage,
+    //   witness: accidentData.witness,
+    //   matricule: accidentData.matricule,
+    //   service: accidentData.service,
+    //   poste: accidentData.poste,
+    //   contract: accidentData.contract
+
+    // }
+    console.log('Sending POST request to API with data:', accidentData);  // Ajoutez ceci pour loguer les données envoyées
+    return this.httpclient.post<Accinc>(`${this.apiUrl}`, accidentData, this.httpOptions).pipe(
+      tap((newAccinc: Accinc) =>console.log(`created AccInc ${newAccinc}`)),
+      catchError(this.handleError<Accinc>('addAccident'))
+    );
+  }
+
+  /** DELETE: supprimer une déclaration */
+  deleteAccinc(id: string): Observable<Accinc> {
+    return this.httpclient.delete<Accinc>(`${this.apiUrl}/${id}`).pipe(
+      tap(_ => console.log(`deleted accinc id=${id}`)),
+      catchError(this.handleError<Accinc>('deleteHero'))
+    );
+  }
+
+
+//  getAccIncList(accinc:Accinc[]): Observable<Accinc[]> {
+//     return this.httpclient.get<Accinc[]>(`${this.apiUrl}/acc_inc`)
+//     .pipe(
+//       tap(_ => console.log('AccIncList récupérée')),
+//       catchError(this.handleError<Accinc[]>('getAccIncList', []))
+//     );
+//   }
+
+
+  // voir une déclaration
+  // getAccincByID(id: string): Observable<Accinc> {
+  //   return this.httpclient.get<Accinc>(`${this.apiUrl}/acc_inc/${id}`);
+  // }
+
+
+  /** PUT: modifier une déclaration  */
+  // updateAccinc(accinc: Accinc): Observable<Accinc> {
+  //   return this.httpclient.put<Accinc>(`${this.apiUrl}/acc_inc/${accinc.id}`, accinc, this.httpOptions).pipe(
+  //     tap(_ =>console.log(`updated AccInc id=${accinc.id}`)),
+  //     catchError(this.handleError<Accinc>('AccInc'))
+  //   );
+  // }
+
    /** POST: ajouter une déclaration*/
-   addAccident(accidentData: Accinc): Observable<Accinc> {
-      return this.httpclient.post<Accinc>(`${this.apiUrl}/acc_inc`, accidentData);
-    }
+  //  addAccident(accidentData: Accinc): Observable<Accinc> {
+  //     return this.httpclient.post<Accinc>(`${this.apiUrl}/acc_inc`, accidentData);
+  //   }
+
 
     /** DELETE: supprimer une déclaration */
-    deleteAccinc(id: string): Observable<Accinc> {
-      return this.httpclient.delete<Accinc>(`${this.apiUrl}/acc_inc/${id}`, this.httpOptions).pipe(
-        tap(_ => console.log(`deleted accinc id=${id}`)),
-        catchError(this.handleError<Accinc>('deleteHero'))
-      );
-    }
+    // deleteAccinc(id: string): Observable<Accinc> {
+    //   return this.httpclient.delete<Accinc>(`${this.apiUrl}/acc_inc/${id}`, this.httpOptions).pipe(
+    //     tap(_ => console.log(`deleted accinc id=${id}`)),
+    //     catchError(this.handleError<Accinc>('deleteHero'))
+    //   );
+    // }
 
 
   private handleError<T>(operation = 'operation', result?: T) {

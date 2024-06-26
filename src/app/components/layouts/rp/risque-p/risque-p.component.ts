@@ -20,6 +20,33 @@ export class RisquePComponent {
     });
   }
 
+//  pour le style
+  getPriorityClass(frequency: number, gravity: number): string {
+    const product = frequency * gravity;
+    if (product >= 1 && product <= 3) {
+      return 'acceptable';
+    } else if (product >= 4 && product <= 6) {
+      return 'moyen';
+    } else if (product >= 7 && product <= 9) {
+      return 'eleve';
+    } else {
+      return 'inacceptable';
+    }
+  }
+
+  getPriority(frequency: number, gravity: number): string {
+    const product = frequency * gravity;
+    if (product >= 1 && product <= 3) {
+      return 'Acceptable';
+    } else if (product >= 4 && product <= 6) {
+      return 'Moyen';
+    } else if (product >= 7 && product <= 9) {
+      return 'Elevé';
+    } else {
+      return 'Inacceptable';
+    }
+  }
+
   onDeleteRisk(dangerId: string, riskId: string): void {
     this.dangRiskSevice.deleteRisk(dangerId, riskId).subscribe(() => {
       console.log('Risque supprimé avec succès');

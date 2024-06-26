@@ -37,25 +37,45 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="abreviation" placeholder="Abreviation" [(ngModel)]="formData.abreviation" name="abreviation"/>
+                      <input type="text" class="form-control" id="abreviation" placeholder="Abreviation"
+                       [(ngModel)]="formData.abreviation" name="abreviation"
+                       #abEq = "ngModel"
+                        [ngClass]="{'is-invalid': abEq.touched && !abEq.valid}"
+                        required
+                       />
                       <label for="abreviation">Abreviation</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="description" placeholder="Désignation équipement" [(ngModel)]="formData.designation" name="description"/>
+                      <input type="text" class="form-control" id="description" placeholder="Désignation équipement"
+                       [(ngModel)]="formData.designation" name="description"
+                       #descEq = "ngModel"
+                        [ngClass]="{'is-invalid': descEq.touched && !descEq.valid}"
+                        required
+                       />
                       <label for="description">Désignation équipement</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating mb-3">
-                      <textarea class="form-control" id="Utility" rows="3" placeholder="Utilité de l'équipement" [(ngModel)]="formData.Utility" name="Utility"></textarea>
+                      <textarea class="form-control" id="Utility" rows="3" placeholder="Utilité de l'équipement"
+                       [(ngModel)]="formData.Utility" name="Utility"
+                        #utEq = "ngModel"
+                        [ngClass]="{'is-invalid': utEq.touched && !utEq.valid}"
+                        required></textarea>
                       <label for="Utility">Utilité de l'équipement</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="number" class="form-control" id="qte" [(ngModel)]="formData.Quantite" name="qte"/>
+                      <input type="number" class="form-control" id="qte"
+                       [(ngModel)]="formData.Quantite" name="qte"
+                        #qte = "ngModel"
+                        [ngClass]="{'is-invalid': qte.touched && !qte.valid}"
+                        min="0"
+                        required
+                       />
                       <label for="qte">Quantité</label>
                     </div>
                   </div>
@@ -63,10 +83,10 @@
                     <div class="d-md-flex align-items-center mt-3">
 
                       <div class="ms-auto mt-3 mt-md-0">
-                        <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                        <button type="submit" [disabled]="!equipForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
                             Enregister
                         </button>
-                        <p *ngIf="msg" class="text-success">{{msg}}</p>
+                        <p *ngIf="msg" class="alert alert-success">{{msg}}</p>
                       </div>
                     </div>
                   </div>

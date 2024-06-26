@@ -34,29 +34,46 @@
           <div class="card">
           <div class="card-body">
             <h5 class="mb-3">Informations sur l'équipement</h5>
-            <form (ngSubmit)="save()">
+            <form (ngSubmit)="save()" #updateEqui="ngForm">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="abreviation" placeholder="Abreviation" [(ngModel)]="equipement.abreviation" name="abreviation"/>
+                    <input type="text" class="form-control" id="abreviation" placeholder="Abreviation"
+                     [(ngModel)]="equipement.abreviation" name="abreviation"
+                     #abEq = "ngModel"
+                    [ngClass]="{'is-invalid': abEq.touched && !abEq.valid}"
+                    required/>
                     <label for="abreviation">Abreviation</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="tb-fname" placeholder="Désignation équipement" [(ngModel)]="equipement.designation" name="designation"/>
+                    <input type="text" class="form-control" id="tb-fname" placeholder="Désignation équipement"
+                     [(ngModel)]="equipement.designation" name="designation"
+                     #desEq = "ngModel"
+                    [ngClass]="{'is-invalid': desEq.touched && !desEq.valid}"
+                    required/>
                     <label for="tb-fname">Désignation équipement</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <textarea class="form-control" id="description" rows="3" placeholder="Utilité de l'équipement" [(ngModel)]="equipement.Utility" name="Utility"></textarea>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Utilité de l'équipement"
+                     [(ngModel)]="equipement.Utility" name="Utility"
+                     #utEq = "ngModel"
+                    [ngClass]="{'is-invalid': utEq.touched && !utEq.valid}"
+                    required
+                     ></textarea>
                     <label for="description">Utilité de l'équipement</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="number" class="form-control" id="qte" [(ngModel)]="equipement.Quantite" name="qte"/>
+                    <input type="number" class="form-control" id="qte" [(ngModel)]="equipement.Quantite" name="qte"
+                    #qte = "ngModel"
+                    [ngClass]="{'is-invalid': qte.touched && !qte.valid}"
+                    min="0"
+                    required/>
                     <label for="qte">Quantité</label>
                   </div>
                 </div>
@@ -64,7 +81,7 @@
                   <div class="d-md-flex align-items-center mt-3">
 
                     <div class="ms-auto mt-3 mt-md-0">
-                      <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                      <button type="submit" [disabled]="!updateEqui.form.valid"  class="btn btn-info font-medium rounded-pill px-4" >
                           Modifier
                       </button>
                     </div>

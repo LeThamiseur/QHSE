@@ -29,14 +29,14 @@
           </div>
         </div>
 
-        <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{formData.nom_AccInc}})</P>
-      <form novalidate (ngSubmit)="addAccInc()" #formDirective="ngForm">
+        <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{formData.type}})</P>
+      <form novalidate (ngSubmit)="addAccInc(formDirective)" #formDirective="ngForm">
         <div class="form-group">
           <!-- choix d'accident / incident start  -->
           <div class="row mt-5 mb-3">
             <div class="col-md-6">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="formData.nom_AccInc" value="accident" required
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="formData.type" value="accident" required
                 #AccincN = "ngModel"
                 [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                 <label class="form-check-label form-label" for="exampleRadios1">
@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="formData.nom_AccInc"  value="incident" required
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="formData.type"  value="incident" required
                 #AccincN = "ngModel"
                 [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                 <label class="form-check-label form-label" for="exampleRadios2">
@@ -66,19 +66,19 @@
             <!-- info perso start -->
             <div class="col">
               <div class="row">
-                <div class="col-md-6 mb-2">
+                <!-- <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="nomV" class="form-label">Nom </label>
                     <input id="nomV" type="text" class="form-control" placeholder="Nom et prénom de la victime" [(ngModel)]="formData.victime" name="nomV" required
                       #victimeName = "ngModel"
                       [ngClass]="{'is-invalid': victimeName.touched && !victimeName.valid}">
                   </div>
-                </div>
+                </div> -->
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="matricule" class="form-label">Matricule</label>
-                    <input id="matricule" type="text" class="form-control" placeholder="Matricule" [(ngModel)]="formData.matriculeV" name="matricule" required
+                    <input id="matricule" type="text" class="form-control" placeholder="Matricule" [(ngModel)]="formData.matricule" name="matricule" required
                     #matriV = "ngModel"
                     [ngClass]="{'is-invalid': matriV.touched && !matriV.valid}">
                   </div>
@@ -107,7 +107,7 @@
             <!-- type de contrat start -->
             <div class="col text-center">
               <label for="contrat" class="form-label">Type de contrat</label>
-              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="formData.typeContrat" name="contrat" required
+              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="formData.contract" name="contrat" required
               #contratV = "ngModel"
               [ngClass]="{'is-invalid': contratV.touched && !contratV.valid}">
                 <option selected>--- Type de contrat ---</option>
@@ -126,7 +126,7 @@
           <div class="border-bottom mb-3"></div>
         </div>
         <!-- Renseignements sur l'accident/incident -->
-        <p><i>Renseignements sur {{formData.nom_AccInc}}</i></p>
+        <p><i>Renseignements sur {{formData.type}}</i></p>
 
         <div class="row mb-3">
           <!-- hhhhhhh -->
@@ -146,7 +146,7 @@
               <div class="col-md-6 form-group mb-2">
                 <!-- <div class="form-group"> -->
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" class="form-control" id="date" [(ngModel)]="formData.date" name="date" required
+                  <input type="date" class="form-control" id="date" [(ngModel)]="formData.dateAccident" name="date" required
                   #dateV = "ngModel"
                   [ngClass]="{'is-invalid': dateV.touched && !dateV.valid}">
                 <!-- </div> -->
@@ -154,21 +154,21 @@
 
               <div class="col-md-6 form-group mb-2">
                   <label for="heure" class="form-label">Heure</label>
-                  <input type="time" class="form-control" id="heure" [(ngModel)]="formData.heure" name="heure" required
+                  <input type="time" class="form-control" id="heure" [(ngModel)]="formData.timeAccident" name="heure" required
                   #timeV = "ngModel"
                   [ngClass]="{'is-invalid': timeV.touched && !timeV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                   <label for="lieu" class="form-label">Lieu</label>
-                  <input type="text" class="form-control" id="lieu" placeholder="Entrez le lieu " [(ngModel)]="formData.lieu" name="lieu" required
+                  <input type="text" class="form-control" id="lieu" placeholder="Entrez le lieu " [(ngModel)]="formData.locationAccident" name="lieu" required
                   #lieuV = "ngModel"
                   [ngClass]="{'is-invalid': lieuV.touched && !lieuV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                 <label for="tache" class="form-label">Tâche en cours</label>
-                <input type="text" class="form-control" id="tache" placeholder="Tâche " [(ngModel)]="formData.tache" name="tache" required
+                <input type="text" class="form-control" id="tache" placeholder="Tâche " [(ngModel)]="formData.task" name="tache" required
                 #tacheV = "ngModel"
                 [ngClass]="{'is-invalid': tacheV.touched && !tacheV.valid}">
             </div>
@@ -217,16 +217,16 @@
 
         <div class="row mb-3">
               <div class="row">
-                <div class="col-md-6 form-group mb-2">
+                <!-- <div class="col-md-6 form-group mb-2">
                     <label for="mesuresPrises" class="form-label">Mesures prises à l'immédiat</label>
                     <input type="text" class="form-control" id="mesuresPrises" [(ngModel)]="formData.mesuresPrises" name="mesuresPrises" required
                     #mpV = "ngModel"
                     [ngClass]="{'is-invalid': mpV.touched && !mpV.valid}">
-                </div>
+                </div> -->
 
                 <div class="col-md-6 form-group mb-2">
                     <label for="temoin" class="form-label">Nom et prénom du témoin</label>
-                    <input type="text" class="form-control" id="temoin" [(ngModel)]="formData.nom_temoin" name="temoin" required
+                    <input type="text" class="form-control" id="temoin" [(ngModel)]="formData.witness" name="temoin" required
                     #temoinV = "ngModel"
                     [ngClass]="{'is-invalid': temoinV.touched && !temoinV.valid}">
                 </div>
@@ -239,7 +239,10 @@
 
         <button type="submit" [disabled]="!formDirective.form.valid" class="btn btn-primary">Déclarer</button>
       </form>
-      <span *ngIf="msg" class="text-success">{{msg}}</span>
+      <!-- Message de succès ou d'erreur -->
+      <div *ngIf="msg" class="alert" [ngClass]="{'alert-success': !isError, 'alert-danger': isError}">
+        {{ msg }}
+      </div>
       </div>
     </div>
 </div>

@@ -12,7 +12,7 @@
             <div class="card bg-light-info shadow-none position-relative overflow-hidden">
               <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                  <h4 class="fw-semibold mb-8 text-center">{{ accinc.nom_AccInc | uppercase }} DECLARE</h4>
+                  <h4 class="fw-semibold mb-8 text-center">{{ accinc.type | uppercase }} DECLARE</h4>
                 </div>
               </div>
             </div>
@@ -28,19 +28,13 @@
                     <!-- info perso start -->
                     <div class="col">
                       <div class="row">
-                        <div class="col-md-6 form-group mb-2">
+                        <!-- <div class="col-md-6 form-group mb-2">
                           <label for="lieu" class="form-label">Nom de la victime</label>
                           <p>{{ accinc.victime }}</p>
-                        </div>
-
-                        <!-- <div class="col-md-6 form-group mb-2">
-                          <label for="lieu" class="form-label">Prenom de la victime</label>
-                          <p>Prenom_victime</p>
                         </div> -->
-
                         <div class="col-md-6 mb-2 form-group">
                             <label for="matricule" class="form-label" >Matricule</label>
-                            <p>{{ accinc.matriculeV }}</p>
+                            <p>{{ accinc.matricule }}</p>
                         </div>
                         <div class="col-md-6 form-group">
 
@@ -60,7 +54,7 @@
                     <!-- type de contrat start -->
                     <div class="col text-center">
                       <label for="contrat" class="form-label" >TYpe de contrat</label>
-                          <p>{{ accinc.typeContrat }}</p>
+                          <p>{{ accinc.contract }}</p>
                     </div>
                     <!-- type de contrat end -->
 
@@ -70,7 +64,7 @@
                   <!-- ligne horizontale  -->
                   <div class="border-bottom mb-3"></div>
                   <!-- Renseignements sur l'accident/incident -->
-                  <p><i>Renseignements sur l'{{accinc.nom_AccInc}}</i></p>
+                  <p><i>Renseignements sur l'{{accinc.type}}</i></p>
 
                   <div class="row mb-3">
                     <!-- info AccInc start -->
@@ -83,16 +77,16 @@
 
                         <div class="col-md-6 mb-2 form-group">
                           <label for="date" class="form-label">Date </label>
-                          <p>{{ accinc.date }}</p>
+                          <p>{{ accinc.dateAccident }}</p>
                         </div>
                         <div class="col-md-6 form-group">
                           <label for="lieu" class="form-label">Lieu</label>
-                          <p>{{ accinc.lieu }}</p>
+                          <p>{{ accinc.locationAccident }}</p>
                         </div>
 
                         <div class="col-md-6 form-group">
                           <label for="heure" class="form-label">Heure</label>
-                          <p>{{ accinc.heure }}</p>
+                          <p>{{ accinc.timeAccident }}</p>
                         </div>
 
                         <div class="col-md-6 form-group">
@@ -110,7 +104,7 @@
                       </div>
                       <div>
                         <label for="Tache" class="form-label">Tâche en cours</label>
-                        <p>{{ accinc.tache }}</p>
+                        <p>{{ accinc.task }}</p>
                       </div>
                     </div>
 
@@ -131,14 +125,14 @@
                   <!-- info perso start -->
                   <div class="col">
                     <div class="row">
-                      <div class="col-md-6 form-group mb-2">
+                      <!-- <div class="col-md-6 form-group mb-2">
                         <label for="mesure" class="form-label" >Mesures prises à l'instant</label>
                         <p>{{ accinc.mesuresPrises }}</p>
-                      </div>
+                      </div> -->
 
                       <div class="col-md-6 form-group mb-2">
                         <label for="nom_temoin" class="form-label" >témoin</label>
-                        <p>{{ accinc.nom_temoin }}</p>
+                        <p>{{ accinc.witness }}</p>
                       </div>
 
                     </div>

@@ -25,143 +25,27 @@
       "id": 3
     }
   ],
-  "acc_inc": [
-    {
-      "id": 1,
-      "nature": "Trajet",
-      "nom_AccInc": "incident",
-      "lieu": "Ndokoti",
-      "date": "2024-02-12",
-      "description": "Description de l'accident même",
-      "heure": "15:20",
-      "tache": "Prise de côte sur le terrain",
-      "consequence": "Sans arrêt",
-      "dommage": "Aucun",
-      "nom_temoin": "Blaise Alphonse Siani",
-      "mesuresPrises": "Eloignement de la zone de danger",
-      "victime": "Sabo Marc",
-      "matriculeV": "BG0019",
-      "service": "Peinture",
-      "poste": "Koumassi",
-      "typeContrat": "Intérimaire"
-    },
-    {
-      "id": 2,
-      "nature": "Trajet",
-      "nom_AccInc": "incident",
-      "lieu": "SOCAVER",
-      "date": "2024-02-12",
-      "description": "Description de l'accident même",
-      "heure": "15:20",
-      "tache": "Prise de côte sur le terrain",
-      "consequence": "Sans arrêt",
-      "dommage": "Aucun",
-      "nom_temoin": "Blaise Alphonse Siani",
-      "mesuresPrises": "Eloignement de la zone de danger",
-      "victime": "Bassong Junior",
-      "matriculeV": "BG0019",
-      "service": "Peinture",
-      "poste": "Koumassi",
-      "typeContrat": "Intérimaire"
-    },
-    {
-      "id": 3,
-      "nature": "Autre",
-      "nom_AccInc": "accident",
-      "lieu": "Ndokoti",
-      "date": "2024-04-12",
-      "description": "Description de l'incident",
-      "heure": "16:20",
-      "tache": "Préfabrication d'éléments constructifs",
-      "consequence": "Sans arrêt",
-      "dommage": "Humain",
-      "nom_temoin": "Etoumo steve",
-      "mesuresPrises": "Eloignement de la zone de danger",
-      "victime": "Bayanack Jean Paul",
-      "matriculeV": "BG0025",
-      "service": "Soudure",
-      "poste": "Ndokotie",
-      "typeContrat": "CDI"
-    },
-    {
-      "id": 4,
-      "nature": "Autre",
-      "nom_AccInc": "incident",
-      "lieu": "SOCAVER",
-      "date": "2024-04-13",
-      "description": "Description de l'incident dans tous les brefs détails",
-      "heure": "16:20",
-      "tache": "Préfabrication d'éléments constructifs",
-      "consequence": "Sans arrêt",
-      "dommage": "Matériel",
-      "nom_temoin": "Mahop steve",
-      "mesuresPrises": "Eloignement de la zone de danger",
-      "victime": "Bayemi Jean Paul",
-      "matriculeV": "BG0025",
-      "service": "Soudure",
-      "poste": "Socaver",
-      "typeContrat": "CDI"
-    },
-    {
-      "id": 5,
-      "nom_AccInc": "accident",
-      "victime": "Boris DCC",
-      "matriculeV": "BG00203",
-      "typeContrat": "Stagiaire",
-      "service": "Peinture",
-      "poste": "Ndokoti",
-      "nature": "Poste",
-      "heure": "09:34",
-      "lieu": "Ndokoti",
-      "tache": "revêtement des postes de soudures",
-      "consequence": "Sans arrêt",
-      "dommage": "Matériel",
-      "description": "Echafaudage bousculer involontairement par un collègue effectuant une autre tâche",
-      "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
-      "nom_temoin": "Etoundi Steve",
-      "date": "2024-05-29"
-    },
-    {
-      "id": 6,
-      "victime": "Bassong Kévin",
-      "matriculeV": "BG0020557",
-      "typeContrat": "CDI",
-      "service": "Peinture",
-      "poste": "Ndokoti",
-      "nature": "Poste",
-      "date": "2024-06-05",
-      "heure": "09:36",
-      "lieu": "Ndokoti",
-      "tache": "revêtement des postes de soudures",
-      "consequence": "Autre",
-      "dommage": "Aucun",
-      "description": "dcdcddddwcdcd",
-      "mesuresPrises": "Appel direct de la hiérarchie",
-      "nom_temoin": "Blaise Alphonse Siani",
-      "nom_AccInc": "accident"
-    }
-  ],
   "equipements": [
     {
       "id": 1,
       "abreviation": "CP",
       "designation": "Casque de Protection",
       "Utility": "Diminue l'impact d'un choc reçu à la tête",
-      "Quantite": 1
+      "Quantite": 3
     },
     {
       "id": 2,
       "abreviation": "BS",
       "designation": "Bottes de protection",
       "Utility": "Protège les pieds des chocs ",
-      "Quantite": 2
+      "Quantite": 3
     },
     {
       "id": 3,
       "abreviation": "GP",
       "designation": "Gant de protection",
       "Utility": "Protège les mains des chocs, brulûre, corrosion",
-      "Quantite": 8
+      "Quantite": 7
     },
     {
       "id": 4,
@@ -233,7 +117,7 @@
         {
           "nomR": "Brûlure, blessures, coupures",
           "frequence": 2,
-          "gravity": 1,
+          "gravity": 4,
           "preventiveMes": "Port des EPIs nécessaires et adéquats au poste de travail (casques, lunettes et chaussures de sécurité, masque de protection, bouchon d'oreilles, tenue de travail, cagoule, gants, ...",
           "id": 1
         }
@@ -251,7 +135,8 @@
       "service": "Tyauterie",
       "fonction": "Technicien",
       "metier": "Support",
-      "retour": "false",
+      "retour": true,
+      "dateR": "2023-06-17",
       "id_Equi": [
         1,
         2,
@@ -266,7 +151,8 @@
       "service": "Recherche",
       "fonction": "Scientifique",
       "metier": "Chimie",
-      "retour": "true",
+      "retour": true,
+      "dateR": "2023-06-17",
       "id_Equi": [
         1,
         3
@@ -282,11 +168,13 @@
       "nom_beneficiaire": "Tamo Boris",
       "fonction": "Chef de site",
       "metier": "Soudure",
-      "retour": "false",
+      "retour": false,
+      "dateR": "",
       "id": 3
     },
     {
-      "retour": false,
+      "retour": true,
+      "dateR": "2023-06-17",
       "id_Equi": [
         1,
         2
@@ -297,6 +185,20 @@
       "fonction": "Chef de site",
       "metier": "Soudure",
       "id": 4
+    },
+    {
+      "retour": false,
+      "dateR": "",
+      "id_Equi": [
+        1,
+        2
+      ],
+      "service": "Soudure",
+      "date": "2024-06-25",
+      "nom_beneficiaire": "Olomo Jean",
+      "fonction": "Chef de site",
+      "metier": "Soudure",
+      "id": 5
     }
   ],
   "Unite_Travail": [

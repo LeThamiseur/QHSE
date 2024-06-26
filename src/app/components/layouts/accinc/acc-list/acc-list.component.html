@@ -51,7 +51,21 @@
                     </tr>
                   </thead>
                   <tbody>
+
                     <tr *ngFor="let accinc of filteredAccincList; let i = index">
+                      <td>
+                        {{i+1}}
+                      </td>
+                      <td><p class="mb-0 fw-normal">{{accinc.type}}</p></td>
+                      <td>
+                        {{accinc.dateAccident}}
+                      </td>
+                      <td>
+                        {{accinc.contract}}
+                      </td>
+
+
+                    <!-- <tr *ngFor="let accinc of filteredAccincList; let i = index">
                       <td>
                         {{i+1}}
                       </td>
@@ -61,7 +75,7 @@
                       </td>
                       <td>
                         {{accinc.typeContrat}}
-                      </td>
+                      </td> -->
                       <td>
                         <div class="dropdown dropstart">
                           <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

@@ -71,7 +71,10 @@
                       <td>
                         <tr><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">{{risk.gravity}}</p></tr>
                       </td>
-                      <td ><p class="mb-2 fw-normal" *ngFor="let risk of situation.risques">Elevé</p></td>
+                      <td >
+                        <p [ngClass]="getPriorityClass(risk.frequence, risk.gravity)" class="mb-2 fw-normal" *ngFor="let risk of situation.risques">
+                          {{ getPriority(risk.frequence, risk.gravity) }}
+                        </p></td>
                       <td>
                         <tr *ngFor="let risk of situation.risques">
                           <a class="align-items-center gap-3" type="button" (click)="onDeleteRisk(situation.id, risk.id)"><i class="fs-4 ti ti-trash"></i></a>

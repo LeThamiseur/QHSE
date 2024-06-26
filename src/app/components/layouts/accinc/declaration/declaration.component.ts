@@ -35,7 +35,7 @@ export class DeclarationComponent {
 
   // download function
   downloadForm() {
-    this.genPdf.generatePdf('pdfContent',`declaration ${this.accinc?.nom_AccInc}`);
+    this.genPdf.generatePdf('pdfContent',`declaration ${this.accinc?.type}`);
     
   }
 }

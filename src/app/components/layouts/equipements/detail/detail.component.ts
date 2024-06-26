@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailComponent {
 
-  @Input() equipement?: Equipement;
+  @Input() equipement!: Equipement;
 
   constructor ( private equipementService: EquipementService, private route: ActivatedRoute) {}
 
@@ -18,7 +18,7 @@ export class DetailComponent {
     this.getEquip();
 
     this.route.params.subscribe(params => {
-      const id = `${this.equipement?.id}`; // Récupère l'ID des paramètres de la route
+      const id = `${this.equipement.id}`; // Récupère l'ID des paramètres de la route
       this.equipementService.getEquipByID(id).subscribe(data => {
         this.equipement = data;
       });

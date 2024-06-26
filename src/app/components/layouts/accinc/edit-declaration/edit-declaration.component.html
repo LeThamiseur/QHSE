@@ -29,15 +29,15 @@
           </div>
         </div>
 
-        <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{accinc.nom_AccInc}})</P>
+        <!-- <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{accinc.nom_AccInc}})</P> -->
       <form novalidate (ngSubmit)="save()" #updatedForm = "ngForm">
         <div class="form-group">
           <!-- choix d'accident / incident start  -->
           <div class="row mt-5 mb-3">
 
-            <div class="col-md-6">
+              <div class="col-md-6">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="accinc.nom_AccInc" value="accident" required
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [(ngModel)]="accinc.type" value="accident" required
                   #AccincN = "ngModel"
                   [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                   <label class="form-check-label form-label" for="exampleRadios1">
@@ -47,7 +47,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="accinc.nom_AccInc" value="incident" required
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="accinc.type" value="incident" required
                   #AccincN = "ngModel"
                   [ngClass]="{'is-invalid': AccincN.touched && !AccincN.valid}">
                   <label class="form-check-label form-label" for="exampleRadios2">
@@ -67,19 +67,19 @@
             <!-- info perso start -->
             <div class="col">
               <div class="row">
-                <div class="col-md-6 mb-2">
+                <!-- <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="nomV" class="form-label">Nom </label>
                     <input id="nomV" type="text" class="form-control" [(ngModel)]="accinc.victime" name="nomV" placeholder="Nom et prénom de la victime" required
                     #victimeName = "ngModel"
                     [ngClass]="{'is-invalid': victimeName.touched && !victimeName.valid}">
                   </div>
-                </div>
+                </div> -->
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="matricule" class="form-label">Matricule</label>
-                    <input id="matricule" type="text" class="form-control" [(ngModel)]="accinc.matriculeV" name="matricule" placeholder="Matricule" required
+                    <input id="matricule" type="text" class="form-control" [(ngModel)]="accinc.matricule" name="matricule" placeholder="Matricule" required
                     #matriV = "ngModel"
                     [ngClass]="{'is-invalid': matriV.touched && !matriV.valid}">
                   </div>
@@ -108,7 +108,7 @@
             <!-- type de contrat start -->
             <div class="col text-center">
               <label for="contrat" class="form-label">Type de contrat</label>
-              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="accinc.typeContrat" name="typeContrat" required
+              <select id="contrat" class="form-select" aria-label="Default select example" [(ngModel)]="accinc.contract" name="typeContrat" required
               #contratV = "ngModel"
               [ngClass]="{'is-invalid': contratV.touched && !contratV.valid}">
                 <option value="" disabled>--- Type de contrat ---</option>
@@ -127,7 +127,7 @@
           <div class="border-bottom mb-3"></div>
         </div>
         <!-- Renseignements sur l'accident/incident -->
-        <p><i>Renseignements sur l'{{accinc.nom_AccInc}}</i></p>
+        <p><i>Renseignements sur l'{{accinc.type}}</i></p>
 
         <div class="row mb-3">
           <!-- hhhhhhh -->
@@ -146,28 +146,28 @@
 
                 <div class="col-md-6 form-group mb-2">
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" class="form-control" id="date" [(ngModel)]="accinc.date" name="date" required
+                  <input type="date" class="form-control" id="date" [(ngModel)]="accinc.dateAccident" name="date" required
                   #dateV = "ngModel"
                   [ngClass]="{'is-invalid': dateV.touched && !dateV.valid}">
                 </div>
 
               <div class="col-md-6 form-group mb-2">
                   <label for="heure" class="form-label">Heure</label>
-                  <input type="time" class="form-control" id="heure" [(ngModel)]="accinc.heure" name="heure" required
+                  <input type="time" class="form-control" id="heure" [(ngModel)]="accinc.timeAccident" name="heure" required
                   #timeV = "ngModel"
                   [ngClass]="{'is-invalid': timeV.touched && !timeV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                   <label for="lieu" class="form-label">Lieu</label>
-                  <input type="text" class="form-control" [(ngModel)]="accinc.lieu" name="lieu" id="lieu" placeholder="Entrez le lieu" required
+                  <input type="text" class="form-control" [(ngModel)]="accinc.locationAccident" name="lieu" id="lieu" placeholder="Entrez le lieu" required
                   #tacheV = "ngModel"
                   [ngClass]="{'is-invalid': tacheV.touched && !tacheV.valid}">
               </div>
 
               <div class="col-md-6 form-group mb-2">
                 <label for="tache" class="form-label">Tâche en cours</label>
-                <input type="text" class="form-control" [(ngModel)]="accinc.tache" name="tache" id="tache" placeholder="Tâche ">
+                <input type="text" class="form-control" [(ngModel)]="accinc.task" name="tache" id="tache" placeholder="Tâche ">
             </div>
 
             <div class="col-md-6 form-group mb-2">
@@ -214,16 +214,16 @@
 
         <div class="row mb-3">
               <div class="row">
-                <div class="col-md-6 form-group mb-2">
+                <!-- <div class="col-md-6 form-group mb-2">
                     <label for="mesuresPrises" class="form-label">Mesures prises à l'immédiat</label>
                     <input type="text" class="form-control" [(ngModel)]="accinc.mesuresPrises" name="mesuresPrises" id="mesuresPrises" required
                     #mpV = "ngModel"
                     [ngClass]="{'is-invalid': mpV.touched && !mpV.valid}">
-                </div>
+                </div> -->
 
                 <div class="col-md-6 form-group mb-2">
                     <label for="temoin" class="form-label">Nom et prénom du témoin</label>
-                    <input type="text" class="form-control" [(ngModel)]="accinc.nom_temoin" name="temoin" id="temoin" required
+                    <input type="text" class="form-control" [(ngModel)]="accinc.witness" name="temoin" id="temoin" required
                     #temoinV = "ngModel"
                     [ngClass]="{'is-invalid': temoinV.touched && !temoinV.valid}">
                 </div>

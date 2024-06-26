@@ -50,7 +50,7 @@
                       <th><h6 class="fs-4 fw-semibold mb-0">Date de dotation</h6></th>
                       <!-- <th><h6 class="fs-4 fw-semibold mb-0">Equipement</h6></th> -->
                       <th><h6 class="fs-4 fw-semibold mb-0">Retour</h6></th>
-                      <th><h6 class="fs-4 fw-semibold mb-0">Retour de dotation</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">date de retour</h6></th>
                       <th><h6 class="fs-4 fw-semibold mb-0">Action</h6></th>
                     </tr>
                   </thead>
@@ -64,9 +64,14 @@
                       <td><p class="mb-0 fw-normal">{{ item.dotation.date }}</p></td>
                       <!-- <td><p class="mb-0 fw-normal">Nom_Equipement</p></td> -->
                       <td>
-                        <span class="badge bg-light-success rounded-3 py-8 text-success fw-semibold fs-2">confirmé</span>
+                        <ng-container *ngIf="item.dotation.retour; else enAttente">
+                          <span class="badge bg-light-success rounded-3 py-8 text-success fw-semibold fs-2">confirmé</span>
+                        </ng-container>
+                        <ng-template #enAttente>
+                          <span class="badge bg-light-danger rounded-3 py-8 text-danger fw-semibold fs-2">en attente</span>
+                        </ng-template>
                       </td>
-                      <td><p class="mb-0 fw-normal">{{item.dotation.retour}}</p></td>
+                      <td><p class="mb-0 fw-normal">{{item.dotation.dateR}}</p></td>
                       <td>
                         <div class="dropdown dropstart">
                           <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,7 +85,7 @@
                               <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/dotation/edit_dotation/{{item.dotation.id}}"><i class="fs-4 ti ti-edit"></i>Modifier</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" (click)="onDeleteDotation(item.dotation.id)"><i class="fs-4 ti ti-trash"></i>Supprimer</a>
+                              <a href="javascript:void(0)" class="dropdown-item d-flex align-items-center gap-3" (click)="onDeleteDotation(item.dotation.id)"><i class="fs-4 ti ti-trash"></i>Supprimer</a>
                             </li>
                           </ul>
                         </div>

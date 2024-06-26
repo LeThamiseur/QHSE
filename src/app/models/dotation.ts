@@ -10,6 +10,7 @@ export class Dotation {
   fonction!: string;
   metier ! : string;
   retour : boolean = false;
+  dateR : string = '';
   id_Equi: number[]= []
 
   // user !: User;
