@@ -19,7 +19,9 @@
                 <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
               </div>
               <form novalidate (ngSubmit)="saveUser(registerForm)" #registerForm = "ngForm">
-                <p class="text-center text-success" *ngIf="msg">{{msg}}</p>
+                <div *ngIf="msg" class="alert text-success">
+                  {{ msg }}
+                </div>
                 <!-- username -->
                 <div class="mb-3">
                   <label for="username" class="form-label">Nom d'utilisateur</label>

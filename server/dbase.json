@@ -13,16 +13,32 @@
       "username": "Bokoyo",
       "nom": "Florent",
       "prenom": "Pastu",
-      "fonction": "QHSE",
+      "fonction": "IT",
       "password": "Qwerty<123"
     },
     {
       "username": "LeYoung",
       "prenom": "Franck",
       "nom": "Erick",
-      "fonction": "HSE",
+      "fonction": "QHSE",
       "password": "Tchatcha07<",
       "id": 3
+    },
+    {
+      "username": "B6K1",
+      "prenom": "Hans",
+      "nom": "PB",
+      "fonction": "IT",
+      "password": "bbMii@2024",
+      "id": 4
+    },
+    {
+      "username": "B6K1",
+      "prenom": "Hans",
+      "nom": "PB",
+      "fonction": "IT",
+      "password": "bbMii@2024",
+      "id": 5
     }
   ],
   "acc_inc": [

@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-add-ppr',
   templateUrl: './add-ppr.component.html',
-  styleUrl: './add-ppr.component.css'
+  styleUrls: ['./add-ppr.component.css']
 })
 export class AddPprComponent {
-
   project = {
     nomProjet: '',
     lieu: '',
@@ -16,14 +15,11 @@ export class AddPprComponent {
     effectif: '',
     description: '',
     tasks: [
-      {taskName : '',
-      situations : [
-        {
-          situationName:'',
-          risks:'',
-          measures: ''
-        }
-      ]
+      {
+        taskName: '',
+        situationName: '',
+        risks: '',
+        measures: ''
       }
     ]
   };
@@ -31,21 +27,17 @@ export class AddPprComponent {
   addTask() {
     this.project.tasks.push({
       taskName: '',
-      situations: [
-      ]
-    });
-  }
-
-  addDangerousSituation(taskIndex: number) {
-    this.project.tasks[taskIndex].situations.push({
       situationName: '',
       risks: '',
       measures: ''
     });
   }
 
+  removeTask(index: number) {
+    this.project.tasks.splice(index, 1);
+  }
+
   onSubmit() {
     console.log(this.project);
   }
-
 }
