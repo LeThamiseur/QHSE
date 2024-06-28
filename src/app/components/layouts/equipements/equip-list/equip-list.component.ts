@@ -34,8 +34,8 @@ export class EquipListComponent {
       return;
     }
     this.filteredEquipementList = this.equipementList.filter(
-      accInc => accInc?.abreviation.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
-                accInc?.designation.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+      equip => equip.code.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+                equip.label.toLocaleLowerCase().includes(text.toLocaleLowerCase())
     )
   }
 

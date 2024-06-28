@@ -38,7 +38,7 @@
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="text" class="form-control" id="abreviation" placeholder="Abreviation"
-                       [(ngModel)]="formData.abreviation" name="abreviation"
+                       [(ngModel)]="formData.code" name="abreviation"
                        #abEq = "ngModel"
                         [ngClass]="{'is-invalid': abEq.touched && !abEq.valid}"
                         required
@@ -49,7 +49,7 @@
                   <div class="col-md-6">
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="description" placeholder="Désignation équipement"
-                       [(ngModel)]="formData.designation" name="description"
+                       [(ngModel)]="formData.label" name="description"
                        #descEq = "ngModel"
                         [ngClass]="{'is-invalid': descEq.touched && !descEq.valid}"
                         required
@@ -60,7 +60,7 @@
                   <div class="col-md-6">
                     <div class="form-floating mb-3">
                       <textarea class="form-control" id="Utility" rows="3" placeholder="Utilité de l'équipement"
-                       [(ngModel)]="formData.Utility" name="Utility"
+                       [(ngModel)]="formData.utility" name="Utility"
                         #utEq = "ngModel"
                         [ngClass]="{'is-invalid': utEq.touched && !utEq.valid}"
                         required></textarea>
@@ -70,7 +70,7 @@
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="number" class="form-control" id="qte"
-                       [(ngModel)]="formData.Quantite" name="qte"
+                       [(ngModel)]="formData.quantity" name="qte"
                         #qte = "ngModel"
                         [ngClass]="{'is-invalid': qte.touched && !qte.valid}"
                         min="0"

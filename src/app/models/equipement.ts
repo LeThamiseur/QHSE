@@ -1,7 +1,7 @@
 export class Equipement {
   id!:number;
-  abreviation!:string;
-  designation!: string;
-  Utility!: string;
-  Quantite! : number;
+  code!:string;
+  label!: string;
+  utility!: string;
+  quantity! : number;
 }

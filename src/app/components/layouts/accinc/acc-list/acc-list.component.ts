@@ -8,7 +8,7 @@ import { AccincService } from '../../../../services/accinc.service';
   styleUrl: './acc-list.component.css'
 })
 export class AccListComponent {
-  accincList : Accinc [] = []
+  accincList : Accinc [] = [];
   filteredAccincList : Accinc [] = [];
   // selectedAccinc?: Accinc;
 
@@ -40,8 +40,8 @@ export class AccListComponent {
       return;
     }
     this.filteredAccincList = this.accincList.filter(
-      accInc => accInc?.type.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
-                // accInc?.victime.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+      accInc => accInc.type.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+                accInc.victime.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
                 accInc.contract.toLocaleLowerCase().includes(text.toLocaleLowerCase())
     )
   }

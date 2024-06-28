@@ -55,9 +55,9 @@
                       <td>
                         {{i+1}}
                       </td>
-                      <td><p class="mb-0 fw-normal">{{equipement.abreviation}}</p></td>
+                      <td><p class="mb-0 fw-normal">{{equipement.code}}</p></td>
                       <td>
-                        {{equipement.designation}}
+                        {{equipement.label}}
                       </td>
                       <td>
                         <div class="dropdown dropstart">
@@ -72,7 +72,7 @@
                               <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/equipement/edit_equip/{{equipement.id}}"><i class="fs-4 ti ti-edit"></i>Edit</a>
                             </li>
                             <li>
-                              <a class="dropdown-item d-flex align-items-center gap-3" (click)="delete(equipement)"><i class="fs-4 ti ti-trash"></i>Delete</a>
+                              <a href="javascript: void(0)" class="dropdown-item d-flex align-items-center gap-3" (click)="delete(equipement)"><i class="fs-4 ti ti-trash"></i>Delete</a>
                             </li>
                           </ul>
                         </div>

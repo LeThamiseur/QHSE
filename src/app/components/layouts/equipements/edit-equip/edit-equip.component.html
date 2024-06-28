@@ -39,7 +39,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="abreviation" placeholder="Abreviation"
-                     [(ngModel)]="equipement.abreviation" name="abreviation"
+                     [(ngModel)]="equipement.code" name="abreviation"
                      #abEq = "ngModel"
                     [ngClass]="{'is-invalid': abEq.touched && !abEq.valid}"
                     required/>
@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="tb-fname" placeholder="Désignation équipement"
-                     [(ngModel)]="equipement.designation" name="designation"
+                     [(ngModel)]="equipement.label" name="designation"
                      #desEq = "ngModel"
                     [ngClass]="{'is-invalid': desEq.touched && !desEq.valid}"
                     required/>
@@ -59,7 +59,7 @@
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <textarea class="form-control" id="description" rows="3" placeholder="Utilité de l'équipement"
-                     [(ngModel)]="equipement.Utility" name="Utility"
+                     [(ngModel)]="equipement.utility" name="Utility"
                      #utEq = "ngModel"
                     [ngClass]="{'is-invalid': utEq.touched && !utEq.valid}"
                     required
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="number" class="form-control" id="qte" [(ngModel)]="equipement.Quantite" name="qte"
+                    <input type="number" class="form-control" id="qte" [(ngModel)]="equipement.quantity" name="qte"
                     #qte = "ngModel"
                     [ngClass]="{'is-invalid': qte.touched && !qte.valid}"
                     min="0"

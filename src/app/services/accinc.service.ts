@@ -10,8 +10,9 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AccincService {
 
-  // private apiUrl = 'http://qhse-api.runasp.net/api/situation';
-  private apiUrl = 'api/situation';
+  private apiUrl = 'http://qhse-api.runasp.net/api/situation';
+
+  // private apiUrl = '/api/situation'; //26/06 - à supprimer : proxy.conf.json et ce j'ai ajouté dans angular.son (serve{option{}}), sans oublier l'adresse plus haut
 
   // private apiUrl = 'http://localhost:3000';
   httpOptions = {

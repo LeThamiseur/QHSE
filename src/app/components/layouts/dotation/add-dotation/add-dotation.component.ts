@@ -32,7 +32,7 @@ export class AddDotationComponent {
 
       getEquipementDesignation(id: number): string {
         const equipement = this.equipementList.find(e => Number(e.id) === id);
-        return equipement ? equipement.designation : '';
+        return equipement ? equipement.label : '';
       }
 
     onSubmit(): void {
@@ -40,8 +40,8 @@ export class AddDotationComponent {
       // Vérifiez d'abord toutes les quantités
         for (let id of this.selectedEquipements) {
         const equipement = this.equipementList.find(e => e.id === id);
-        if (equipement && equipement.Quantite <= 0) {
-          this.errorMsg = `L'équipement ${equipement.designation} n'est pas disponible.`;
+        if (equipement && equipement.quantity <= 0) {
+          this.errorMsg = `L'équipement ${equipement.label} n'est pas disponible.`;
           return; // Stopper le processus si une quantité est insuffisante
         }
       }
@@ -50,14 +50,14 @@ export class AddDotationComponent {
           this.selectedEquipements.forEach(id => {
         const equipement = this.equipementList.find(e => e.id === id);
         if (equipement) {
-          const newQuantity = equipement.Quantite - 1;
+          const newQuantity = equipement.quantity - 1;
           this.equipementService.updateEquipementQuantity(id, newQuantity).subscribe(updatedEquip => {
             console.log(`Quantité de l'équipement id=${id} mise à jour à ${newQuantity}`);
             // Mettez à jour la quantité dans la liste locale pour éviter une nouvelle requête de récupération
-            equipement.Quantite = newQuantity;
+            equipement.quantity = newQuantity;
           }, error => {
             console.error('Erreur de mise à jour de la quantité', error);
-            this.errorMsg = `Erreur de mise à jour de la quantité pour l'équipement ${equipement.designation}.`;
+            this.errorMsg = `Erreur de mise à jour de la quantité pour l'équipement ${equipement.label}.`;
           });
         }
       });

@@ -12,7 +12,7 @@ import { GenPdfService } from '../../../../services/gen-pdf.service';
 })
 export class DeclarationComponent {
 
-  @Input() accinc?: Accinc;
+  @Input() accinc!: Accinc;
 
   constructor(private accincservice: AccincService, private route: ActivatedRoute, private genPdf : GenPdfService){}
 
@@ -20,7 +20,7 @@ export class DeclarationComponent {
     this.getAcc();
 
     this.route.params.subscribe(params => {
-      const id = `${this.accinc?.id}`; // Récupère l'ID des paramètres de la route
+      const id = `${this.accinc.id}`; // Récupère l'ID des paramètres de la route
       this.accincservice.getAccincByID(id).subscribe(data => {
         this.accinc = data;
       });

@@ -1,5 +1,6 @@
 // classe représentant une dotation
 
+
 import { User } from "./user";
 
 export class Accinc {
@@ -7,8 +8,10 @@ export class Accinc {
   id!:string;
   type!:string;
   nature!: string;
+  victime !: string;
+  measure! : string;
   locationAccident!:string;
-  dateAccident!:string;
+  dateAccident!:Date;
   description!:string;
   timeAccident! : string;
   task!:string;

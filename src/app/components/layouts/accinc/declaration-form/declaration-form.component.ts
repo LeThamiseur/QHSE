@@ -28,6 +28,14 @@ export class DeclarationFormComponent {
 
  // Method to add accident/incident
  addAccInc(formDirective: NgForm) {
+
+  // Ajoute des secondes au format `HH:mm:ss`
+  const [hours, minutes] = this.formData.timeAccident.split(':');
+  const formattedTimeAccident = `${hours}:${minutes}:00`;
+
+  // Met à jour le champ `timeAccident` avec l'heure formatée
+  this.formData.timeAccident = formattedTimeAccident;
+
   console.log('Sending data:', this.formData);  //  pour voir les données envoyées
 
   this.accincService.addAccident(this.formData)
