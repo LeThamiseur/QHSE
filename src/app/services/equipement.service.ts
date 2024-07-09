@@ -10,7 +10,7 @@ import { Dotation } from '../models/dotation';
 })
 export class EquipementService {
 
-  private apiUrl = 'http://qhse-api.runasp.net/api/equipment';
+  // private apiUrl = 'http://qhse-api.runasp.net/api/equipment';
   private api_Url = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,95 +18,95 @@ export class EquipementService {
 
   constructor( private httpClient : HttpClient) { }
 
-  // getEquipementList(equipement : Equipement[]): Observable<Equipement []> {
-  //   return this.httpClient.get<Equipement[]>(`${this.apiUrl}/equipements`)
-  //       .pipe(
-  //         tap(_=> console.log("List d'equipement récupérée")),
-  //         catchError(this.handleError<Equipement[]>('getEquipementList', []))
-  //       );
-  // }
   getEquipementList(equipement : Equipement[]): Observable<Equipement []> {
-    return this.httpClient.get<Equipement[]>(`${this.apiUrl}`)
+    return this.httpClient.get<Equipement[]>(`${this.api_Url}/equipements`)
         .pipe(
           tap(_=> console.log("List d'equipement récupérée")),
           catchError(this.handleError<Equipement[]>('getEquipementList', []))
         );
   }
-
-  // addEquipement(equipement: Equipement): Observable<Equipement> {
-  //   return this.httpClient.post<Equipement>(`${this.apiUrl}/equipements`, equipement, this.httpOptions).pipe(
-  //     tap((newEqip: Equipement) => console.log(`Equipement ajoutée/ id=${newEqip.id}`)),
-  //     catchError(this.handleError<Equipement>('addEquipement'))
-  //   );
+  // getEquipementList(equipement : Equipement[]): Observable<Equipement []> {
+  //   return this.httpClient.get<Equipement[]>(`${this.apiUrl}`)
+  //       .pipe(
+  //         tap(_=> console.log("List d'equipement récupérée")),
+  //         catchError(this.handleError<Equipement[]>('getEquipementList', []))
+  //       );
   // }
+
   addEquipement(equipement: Equipement): Observable<Equipement> {
-    return this.httpClient.post<Equipement>(`${this.apiUrl}`, equipement, this.httpOptions).pipe(
+    return this.httpClient.post<Equipement>(`${this.api_Url}/equipements`, equipement, this.httpOptions).pipe(
       tap((newEqip: Equipement) => console.log(`Equipement ajoutée/ id=${newEqip.id}`)),
       catchError(this.handleError<Equipement>('addEquipement'))
     );
   }
+  // addEquipement(equipement: Equipement): Observable<Equipement> {
+  //   return this.httpClient.post<Equipement>(`${this.apiUrl}`, equipement, this.httpOptions).pipe(
+  //     tap((newEqip: Equipement) => console.log(`Equipement ajoutée/ id=${newEqip.id}`)),
+  //     catchError(this.handleError<Equipement>('addEquipement'))
+  //   );
+  // }
 
   /** DELETE: supprimer un equipement */
   // deleteEquip(id: string): Observable<Equipement> {
-  //   return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
+  //   return this.httpClient.delete<Equipement>(`${this.api_Url}/equipements/${id}`, this.httpOptions).pipe(
   //     tap(_ => console.log(`deleted equipement id=${id}`)),
   //     catchError(this.handleError<Equipement>('deleteEquipement'))
   //   );
   // }
 
-  // deleteEquip(id: number): Observable<Equipement> {
-  //   return this.httpClient.delete<Equipement>(`${this.apiUrl}/equipements/${id}`, this.httpOptions).pipe(
-  //     tap(_ => console.log(`deleted equipement id=${id}`)),
-  //     catchError(this.handleError<Equipement>('deleteEquip'))
-  //   );
-  // }
   deleteEquip(id: number): Observable<Equipement> {
-    return this.httpClient.delete<Equipement>(`${this.apiUrl}/${id}`, this.httpOptions).pipe(
+    return this.httpClient.delete<Equipement>(`${this.api_Url}/equipements/${id}`, this.httpOptions).pipe(
       tap(_ => console.log(`deleted equipement id=${id}`)),
       catchError(this.handleError<Equipement>('deleteEquip'))
     );
   }
-
-  // /** GET equipement by id*/
-  // getEquipByID(id: string): Observable<Equipement> {
-  //   return this.httpClient.get<Equipement>(`${this.apiUrl}/equipements/${id}`);
-  // }
-  /** GET equipement by id*/
-  getEquipByID(id: string): Observable<Equipement> {
-    return this.httpClient.get<Equipement>(`${this.apiUrl}/${id}`);
-  }
-
-  // /** PUT: modifier un équipement  */
-  // updateEquip(equip: Equipement): Observable<Equipement> {
-  //   return this.httpClient.put<Equipement>(`${this.apiUrl}/equipements/${equip.id}`, equip, this.httpOptions).pipe(
-  //     tap(_ =>console.log(`updated equipement id=${equip.id}`)),
-  //     catchError(this.handleError<Equipement>('Equipement'))
+  // deleteEquip(id: number): Observable<Equipement> {
+  //   return this.httpClient.delete<Equipement>(`${this.apiUrl}/${id}`, this.httpOptions).pipe(
+  //     tap(_ => console.log(`deleted equipement id=${id}`)),
+  //     catchError(this.handleError<Equipement>('deleteEquip'))
   //   );
   // }
-  /** PUT: modifier un équipement  */
+
+  // /** GET equipement by id*/
+  getEquipByID(id: string): Observable<Equipement> {
+    return this.httpClient.get<Equipement>(`${this.api_Url}/equipements/${id}`);
+  }
+  /** GET equipement by id*/
+  // getEquipByID(id: string): Observable<Equipement> {
+  //   return this.httpClient.get<Equipement>(`${this.apiUrl}/${id}`);
+  // }
+
+  // /** PUT: modifier un équipement  */
   updateEquip(equip: Equipement): Observable<Equipement> {
-    return this.httpClient.put<Equipement>(`${this.apiUrl}/${equip.id}`, equip, this.httpOptions).pipe(
+    return this.httpClient.put<Equipement>(`${this.api_Url}/equipements/${equip.id}`, equip, this.httpOptions).pipe(
       tap(_ =>console.log(`updated equipement id=${equip.id}`)),
       catchError(this.handleError<Equipement>('Equipement'))
     );
   }
-
-  // // Méthode pour mettre à jour la quantité d'un équipement
-  // updateEquipementQuantity(id: number, quantity: number): Observable<Equipement> {
-  //   const url = `${this.apiUrl}/equipements/${id}`;
-  //   return this.httpClient.patch<Equipement>(url, { Quantite: quantity }, this.httpOptions).pipe(
-  //     tap(_ => console.log(`updated equipment id=${id} with new quantity=${quantity}`)),
-  //     catchError(this.handleError<Equipement>('updateEquipementQuantity'))
+  /** PUT: modifier un équipement  */
+  // updateEquip(equip: Equipement): Observable<Equipement> {
+  //   return this.httpClient.put<Equipement>(`${this.apiUrl}/${equip.id}`, equip, this.httpOptions).pipe(
+  //     tap(_ =>console.log(`updated equipement id=${equip.id}`)),
+  //     catchError(this.handleError<Equipement>('Equipement'))
   //   );
   // }
+
   // Méthode pour mettre à jour la quantité d'un équipement
   updateEquipementQuantity(id: number, quantity: number): Observable<Equipement> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.api_Url}/equipements/${id}`;
     return this.httpClient.patch<Equipement>(url, { Quantite: quantity }, this.httpOptions).pipe(
       tap(_ => console.log(`updated equipment id=${id} with new quantity=${quantity}`)),
       catchError(this.handleError<Equipement>('updateEquipementQuantity'))
     );
   }
+  // Méthode pour mettre à jour la quantité d'un équipement
+  // updateEquipementQuantity(id: number, quantity: number): Observable<Equipement> {
+  //   const url = `${this.apiUrl}/${id}`;
+  //   return this.httpClient.patch<Equipement>(url, { Quantite: quantity }, this.httpOptions).pipe(
+  //     tap(_ => console.log(`updated equipment id=${id} with new quantity=${quantity}`)),
+  //     catchError(this.handleError<Equipement>('updateEquipementQuantity'))
+  //   );
+  // }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

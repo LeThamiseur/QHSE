@@ -50,11 +50,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let situation of filteredSDList, let i = index">
+                    <!-- <tr *ngFor="let situation of filteredSDList, let i = index">
                       <td>
                         {{i+1}}
                       </td>
-                      <td><p class="mb-0 fw-normal">{{situation.libelle}}</p></td>
+                      <td><p class="mb-0 fw-normal">{{situation.label}}</p></td>
                       <td>
                         <tr *ngFor = "let risk of situation.risques">{{risk.nomR}}</tr>
                       </td>
@@ -76,10 +76,10 @@
                           </ul>
                         </div>
                       </td>
-                    </tr>
+                    </tr> -->
 
 
-                    <!-- <tr *ngFor="let situation of situationDList, let i = index">
+                    <tr *ngFor="let situation of situationDList, let i = index">
                       <td>
                         {{i+1}}
                       </td>
@@ -105,7 +105,7 @@
                           </ul>
                         </div>
                       </td>
-                    </tr> -->
+                    </tr>
                   </tbody>
                 </table>
                 <!-- ================================== -->

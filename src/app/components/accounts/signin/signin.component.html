@@ -43,8 +43,7 @@
                 <div class="mb-3">
                   <label for="username" class="form-label">Nom d'utilisateur</label>
                   <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                  <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username"
-                  required minlength="4"
+                  <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required 
                   #usernamevar="ngModel"
                   [ngClass]="{'is-invalid': usernamevar.touched && !usernamevar.valid}"
                   >
@@ -55,8 +54,7 @@
                 </div>
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                  <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required minlength="8"
-                  pattern="(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{1,}"
+                  <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required
                   #passwordvar="ngModel"
                   [ngClass]="{'is-invalid': passwordvar.touched && !passwordvar.valid}">
                   <div class="invalid-feedback">
@@ -71,7 +69,7 @@
                   <a class="text-primary fw-medium" routerLink="">Forgot Password ?</a>
                 </div>
                 <!-- <a href="home" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</a> -->
-                <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Se Connecter</button>
+                <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Se Connecter</button>
                 <div class="d-flex align-items-center justify-content-center">
                   <!-- <p class="fs-4 mb-0 fw-medium">New to Modernize?</p> -->
                   <a class="text-primary fw-medium ms-2" routerLink="/register">Créer un compte</a>

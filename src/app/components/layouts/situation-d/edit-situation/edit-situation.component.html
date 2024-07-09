@@ -38,7 +38,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="SD" placeholder="Situation dangereuse"
-                    [(ngModel)]="situationD.libelle" name="SD"
+                    [(ngModel)]="situationD.label" name="SD"
                         #sd = "ngModel"
                         [ngClass]="{'is-invalid': sd.touched && !sd.valid}"
                         required/>

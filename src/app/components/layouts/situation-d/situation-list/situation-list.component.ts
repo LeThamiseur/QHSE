@@ -36,7 +36,7 @@ export class SituationListComponent {
       return;
     }
     this.filteredSDList = this.situationDList.filter(
-      danger => danger?.libelle.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
+      danger => danger?.label.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
                 danger?.description.toLocaleLowerCase().includes(text.toLocaleLowerCase())
     )
   }

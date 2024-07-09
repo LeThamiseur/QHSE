@@ -138,66 +138,69 @@
       "dateAccident": "2024-05-29"
     },
     {
-      "id": "6",
-      "victime": "Bassong Kévin",
-      "matricule": "BG0020557",
-      "contract": "CDI",
-      "service": "Peinture",
-      "poste": "Ndokoti",
+      "type": "accident",
+      "victime": "ff",
+      "matricule": "fg",
+      "contract": "CDD",
+      "service": "dgfd",
+      "poste": "gfg",
       "nature": "Poste",
-      "dateAccident": "2024-06-05",
-      "timeAccident": "09:36",
-      "locationAccident": "Ndokoti",
-      "task": "revêtement des postes de soudures",
-      "consequence": "Autre",
-      "dommage": "Aucun",
-      "description": "dcdcddddwcdcd",
-      "mesuresPrises": "Appel direct de la hiérarchie",
-      "witness": "Blaise Alphonse Siani",
-      "type": "accident"
+      "dateAccident": "2024-07-09",
+      "timeAccident": "10:10:00",
+      "locationAccident": "rtyr",
+      "task": "grdgrg",
+      "consequence": "Poste",
+      "dommage": "Matériel",
+      "description": "dgrgr",
+      "measure": "gdgdgdgr",
+      "witness": "gdgrg",
+      "id": "RgaLs0i"
     }
   ],
   "equipements": [
     {
       "id": 1,
-      "abreviation": "CP",
-      "designation": "Casque de Protection",
-      "Utility": "Diminue l'impact d'un choc reçu à la tête",
-      "Quantite": 3
+      "code": "CP",
+      "label": "Casque de Protection",
+      "utility": "Diminue l'impact d'un choc reçu à la tête",
+      "quantity": 3,
+      "Quantite": 2
     },
     {
       "id": 2,
-      "abreviation": "BS",
-      "designation": "Bottes de protection",
-      "Utility": "Protège les pieds des chocs ",
-      "Quantite": 3
+      "code": "BS",
+      "label": "Bottes de protection",
+      "utility": "Protège les pieds des chocs ",
+      "quantity": 3,
+      "Quantite": 2
     },
     {
       "id": 3,
-      "abreviation": "GP",
-      "designation": "Gant de protection",
-      "Utility": "Protège les mains des chocs, brulûre, corrosion",
-      "Quantite": 7
+      "code": "GP",
+      "label": "Gant de protection",
+      "utility": "Protège les mains des chocs, brulûre, corrosion",
+      "quantity": 7,
+      "Quantite": 6
     },
     {
       "id": 4,
-      "abreviation": "LP",
-      "designation": "Lunette de protetion",
-      "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
-      "Quantite": 0
+      "code": "LP",
+      "label": "Lunette de protetion",
+      "utility": "Protège les yeux contre les éteincelles et fortes lumières",
+      "quantity": 0
     },
     {
       "id": 5,
-      "abreviation": "EQtest",
-      "designation": "Equipement de test",
-      "Utility": "xdvdd",
-      "Quantite": 0
+      "code": "EQtest",
+      "label": "Equipement de test",
+      "utility": "xdvdd",
+      "quantity": 0
     }
   ],
   "dangers": [
     {
       "id": 1,
-      "libelle": "Chutes de hauteur",
+      "label": "Chutes de hauteur",
       "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection(s) adéquate(s)",
       "risques": [
         {
@@ -216,16 +219,16 @@
         },
         {
           "nomR": "test",
-          "frequence": 1,
+          "frequence": 4,
           "gravity": 1,
-          "preventiveMes": "dffdd",
+          "preventiveMes": "testDesc",
           "id": 3
         }
       ]
     },
     {
       "id": 2,
-      "libelle": "Exposition à des produits chimiques",
+      "label": "Exposition à des produits chimiques",
       "description": "Manipulation de substances toxiques sans protection.",
       "risques": [
         {
@@ -254,7 +257,7 @@
           "id": 1
         }
       ],
-      "libelle": "Débitage et meulage des éléments",
+      "label": "Débitage et meulage des éléments",
       "description": "les éléments peuvent se mélanger lors de la préfabrication",
       "id": 3
     }
@@ -320,7 +323,7 @@
     },
     {
       "retour": false,
-      "dateR": "",
+      "dateR": "2024-07-09",
       "id_Equi": [
         1,
         2

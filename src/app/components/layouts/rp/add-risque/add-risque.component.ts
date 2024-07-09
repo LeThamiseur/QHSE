@@ -21,7 +21,7 @@ export class AddRisqueComponent {
   ) {
     this.dangerId = this.route.snapshot.paramMap.get('dangerId')!;
     this.dangRiskService.getDangRById(this.dangerId).subscribe(data => {
-      this.situation = data.libelle;
+      this.situation = data.label;
     });
   }
 
