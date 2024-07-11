@@ -11,6 +11,7 @@ import { UserService } from '../../../services/user.service';
 export class RegisterComponent {
 
   user : User = new User();
+  showPassword: boolean = false;
   msg = '';
 
   constructor(private userService: UserService) { }
@@ -26,6 +27,10 @@ export class RegisterComponent {
         this.msg = " Erreur d'enregistrement!";
       });
     }
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   // saveUser () {

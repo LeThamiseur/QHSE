@@ -33,64 +33,46 @@
           <div class="card">
             <div class="card-body">
               <h5 class="mb-3">Informations sur l'unité de travail</h5>
-              <form #equipForm = "ngForm">
+              <form (ngSubmit)="save()" #updateUnit="ngForm">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="name" placeholder="name"/>
+                      <input type="text" class="form-control" id="name" placeholder="name"
+                      [(ngModel)]="unite.nom_UT" name="nom"
+                      #nomUt = "ngModel"
+                     [ngClass]="{'is-invalid': nomUt.touched && !nomUt.valid}"
+                     required
+                      />
                       <label for="name">Nom de l'unité</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <!-- <label for="docU">Document unique</label> -->
-                      <select class="form-select" aria-label="Default select example">
-                        <option disabled>Choisir le DUER</option>
-                        <option value="1">DUER Entreprise</option>
+                      <select class="form-select" aria-label="Default select example"
+                      [(ngModel)]="unite.id_DocU" name="doc"
+                      #idut = "ngModel"
+                     [ngClass]="{'is-invalid': idut.touched && !idut.valid}"
+                     required
+                      >
+                      <option disabled>Choisir le DUER</option>
+                      <option *ngFor="let docU of docUList" [value]="docU.id">{{docU.nom_DocU}}</option>
                       </select>
                     </div>
                   </div>
-
-                  <!-- tableau de tâches -->
-                  <!-- <div class="table-responsive rounded-2 mt-4 mb-1 table-wrapper">
-
-                    <table class="table border text-nowrap customize-table mb-0 align-middle">
-                      <thead class="text-dark fs-4">
-                        <tr>
-                          <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
-                          <th><h6 class="fs-4 fw-semibold mb-0">Tâche(s)</h6></th>
-
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            fg
-                          </td>
-
-                          <td>
-                            fgf
-                          </td>
-
-                          <td>
-                            <a href="javascript:void(0)" class="text-danger delete ms-2">
-                              <i class="ti ti-trash fs-5"></i>
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div> -->
                   <div class="col-12">
                     <div class="d-md-flex align-items-center mt-3">
 
                       <div class="ms-auto mt-3 mt-md-0">
-                        <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                        <button type="submit" [disabled]="!updateUnit.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
                             Enregister
                         </button>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div *ngIf="msg" class="alert alert-success">
+                  {{ msg }}
                 </div>
               </form>
             </div>

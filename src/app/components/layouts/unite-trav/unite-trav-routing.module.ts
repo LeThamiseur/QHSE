@@ -15,7 +15,7 @@ const routes: Routes = [
     path:'uniteTrav/add_UT', component : AddUTComponent
   },
   {
-    path:'uniteTrav/edit_UT', component : EditUTComponent
+    path:'uniteTrav/edit_UT/:id', component : EditUTComponent
   },
   {
     path:'uniteTrav/tasks', component : TasklistComponent

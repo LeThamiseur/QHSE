@@ -52,17 +52,19 @@
                     <!-- <span *ngIf="usernamevar.errors?.['minlength']">Minimum 4 caractères</span> -->
                   </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                   <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                  <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required
+                  <input type="{{ showPassword ? 'text' : 'password' }}"class="form-control" id="password" [(ngModel)]="password" name="password" required
                   #passwordvar="ngModel"
-                  [ngClass]="{'is-invalid': passwordvar.touched && !passwordvar.valid}">
+                  [ngClass]="{'is-invalid': passwordvar.touched && !passwordvar.valid}"
+                  >
+                  <i class="fa-regular fa-eye mx-1 mt-2"
+                  (click)="togglePasswordVisibility()"
+                    [class.fa-eye-slash]="showPassword"
+                    [class.fa-eye]="!showPassword"  
+                    ></i>
                   <div class="invalid-feedback">
                     <span *ngIf="passwordvar.errors?.['required']">Veuillez entrer un mot de passe</span>
-                    <!-- <span *ngIf="passwordvar.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères</span>
-                    <span *ngIf="passwordvar.errors?.['pattern']">
-                      Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et un caractère spécial
-                    </span> -->
                   </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-4">

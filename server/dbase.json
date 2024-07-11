@@ -136,25 +136,6 @@
       "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
       "witness": "Etoundi Steve",
       "dateAccident": "2024-05-29"
-    },
-    {
-      "type": "accident",
-      "victime": "ff",
-      "matricule": "fg",
-      "contract": "CDD",
-      "service": "dgfd",
-      "poste": "gfg",
-      "nature": "Poste",
-      "dateAccident": "2024-07-09",
-      "timeAccident": "10:10:00",
-      "locationAccident": "rtyr",
-      "task": "grdgrg",
-      "consequence": "Poste",
-      "dommage": "Matériel",
-      "description": "dgrgr",
-      "measure": "gdgdgdgr",
-      "witness": "gdgrg",
-      "id": "RgaLs0i"
     }
   ],
   "equipements": [
@@ -336,22 +317,66 @@
       "id": 5
     }
   ],
+  "Doc_U": [
+    {
+      "id": 1,
+      "nom_DocU": "DUER Entreprise"
+    }
+  ],
   "Unite_Travail": [
     {
-      "id_UT": 1,
-      "nom_UT": "Unité A",
+      "id": 1,
+      "nom_UT": "Unité de Socaver",
       "id_DocU": 1
     },
     {
-      "id_UT": 2,
-      "nom_UT": "Unité B",
-      "id_DocU": 2
+      "id": 2,
+      "nom_UT": "Unité de Ndokoti",
+      "id_DocU": 1
+    },
+    {
+      "id": 3,
+      "nom_UT": "Unité de SCDP",
+      "id_DocU": 1
+    },
+    {
+      "id_DocU": "1",
+      "nom_UT": "Unité de Koumassi",
+      "id": 4
     }
   ],
-  "Doc_U": [
+  "Tache": [
     {
-      "id_DocU": 1,
-      "nom_DocU": "DUER Entreprise"
+      "id": 1,
+      "nom": "Construction des dalettes",
+      "id_UT": 1
+    },
+    {
+      "id": 2,
+      "nom": "Revêtement des mûrs",
+      "id_UT": 2
+    },
+    {
+      "id": 3,
+      "nom": "Soudure métalique",
+      "id_UT": 1
+    },
+    {
+      "id": 4,
+      "nom": "Soudure des poste",
+      "id_UT": 1
+    }
+  ],
+  "TaskSD": [
+    {
+      "id": 1,
+      "id_T": 1,
+      "id_Sd": 1
+    },
+    {
+      "id": 2,
+      "id_T": 2,
+      "id_Sd": 2
     }
   ]
 }

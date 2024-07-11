@@ -10,9 +10,14 @@ export class SigninComponent {
 
   username: string = '';
   password: string = '';
+  showPassword: boolean = false;
   errorMessage: string = '';
 
   constructor(private authService: AuthService) { }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(success => {

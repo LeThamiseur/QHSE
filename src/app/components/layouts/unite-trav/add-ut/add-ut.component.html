@@ -33,33 +33,49 @@
           <div class="card">
             <div class="card-body">
               <h5 class="mb-3">Informations sur l'unité de travail</h5>
-              <form #equipForm = "ngForm">
+              <form (ngSubmit)="addUnit()" #unitForm = "ngForm">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="name" placeholder="name"/>
+                      <input type="text" class="form-control" id="name" placeholder="name"
+                      [(ngModel)]="formData.nom_UT" name="abreviation"
+                       #nomUT = "ngModel"
+                        [ngClass]="{'is-invalid': nomUT.touched && !nomUT.valid}"
+                        required
+                      />
                       <label for="name">Nom de l'unité</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <!-- <label for="docU">Document unique</label> -->
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"
+                      [(ngModel)]="formData.id_DocU" name="docU"
+                      #doc = "ngModel"
+                        [ngClass]="{'is-invalid': doc.touched && !doc.valid}" 
+                      required
+                      >
                         <option disabled>Choisir le DUER</option>
-                        <option value="1">DUER Entreprise</option>
+                        <option *ngFor="let docU of docUList" [value]="docU.id">{{docU.nom_DocU}}</option>
                       </select>
+                      <div class="invalid-feedback">
+                        <span *ngIf="doc.errors?.['required']">Veuillez le DUER</span>
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="d-md-flex align-items-center mt-3">
 
                       <div class="ms-auto mt-3 mt-md-0">
-                        <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                        <button type="submit" [disabled]="!unitForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
                             Enregister
                         </button>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div *ngIf="msg" class="alert alert-success">
+                  {{ msg }}
                 </div>
               </form>
             </div>

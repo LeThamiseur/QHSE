@@ -32,9 +32,7 @@
         <div *ngIf="errorMsg" class="alert alert-danger">
           {{ errorMsg }}
         </div>
-        <div *ngIf="successMsg" class="alert alert-success">
-          {{ successMsg }}
-        </div>
+        
 
         <!-- formulaire de dotation -->
         <form (ngSubmit)="onSubmit()" #formDirective ="ngForm">
