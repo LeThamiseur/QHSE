@@ -10,7 +10,7 @@
           <div class="card-body px-4 py-3">
             <div class="row align-items-center">
               <div class="col-9">
-                <h4 class="fw-semibold mb-8">Unité de travail</h4>
+                <a class="text-muted" routerLink="/uniteTrav"><h4 class="fw-semibold mb-8">Unité de travail</h4></a>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -33,35 +33,49 @@
           <div class="card">
             <div class="card-body">
               <h5 class="mb-3">Tâche</h5>
-              <form #equipForm = "ngForm">
+              <form (ngSubmit)="add_Task()" #taskForm = "ngForm">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="name" placeholder="name"/>
+                      <input type="text" class="form-control" id="name" placeholder="name"
+                      [(ngModel)]="formData.nom" name="abreviation"
+                      #nomt = "ngModel"
+                       [ngClass]="{'is-invalid': nomt.touched && !nomt.valid}"
+                       required
+                      />
                       <label for="name">Libellé de la tâche</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <!-- <label for="docU">Document unique</label> -->
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"
+                      [(ngModel)]="formData.id_UT" name="unit"
+                      #ut = "ngModel"
+                        [ngClass]="{'is-invalid': ut.touched && !ut.valid}" 
+                      required
+                      >
                         <option disabled>Choisir unité de travail</option>
-                        <option value="1">Unité A</option>
-                        <option value="1">Unité B</option>
-                        <option value="1">Unité c</option>
+                        <option *ngFor="let unite of uniteTravList" [value]="unite.id">{{unite.nom_UT}}</option>
                       </select>
+                      <div class="invalid-feedback">
+                        <span *ngIf="ut.errors?.['required']">Veuillez choisir l'unité de travail</span>
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="d-md-flex align-items-center mt-3">
 
                       <div class="ms-auto mt-3 mt-md-0">
-                        <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                        <button type="submit" [disabled]="!taskForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
                             Enregister
                         </button>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div *ngIf="msg" class="alert alert-success">
+                  {{ msg }}
                 </div>
               </form>
             </div>

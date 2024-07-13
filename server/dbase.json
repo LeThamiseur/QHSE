@@ -320,7 +320,7 @@
   "Doc_U": [
     {
       "id": 1,
-      "nom_DocU": "DUER Entreprise"
+      "nom_DocU": "Betang Engineering"
     }
   ],
   "Unite_Travail": [
@@ -365,6 +365,16 @@
       "id": 4,
       "nom": "Soudure des poste",
       "id_UT": 1
+    },
+    {
+      "nom": "Construction des dallettes",
+      "id_UT": 4,
+      "id": 6
+    },
+    {
+      "nom": "test",
+      "id_UT": 3,
+      "id": 7
     }
   ],
   "TaskSD": [

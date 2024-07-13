@@ -59,27 +59,27 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr *ngFor="let task of taskList; let i=index">
                       <td>
-                        1
+                        {{i+1}}
                       </td>
                       <!-- <td><p class="mb-0 fw-normal">a</p></td>
                       <td>
                         a
                       </td> -->
                       <td>
-                        tâche 1
+                       {{task.nom}}
                       </td>
                       <td>
-                        Unité A
+                        {{ getUniteTravName(task.id_UT) }}
                       </td>
 
                       <td>
                         <div class="action-btn">
-                          <a href="javascript:void(0)" class="text-info edit" routerLink="/uniteTrav/tasks/edit">
+                          <a href="javascript:void(0)" class="text-info edit" routerLink="/uniteTrav/tasks/edit/{{task.id}}">
                             <i class="fs-4 ti ti-edit"></i>
                           </a>
-                          <a href="javascript:void(0)" class="text-danger delete ms-2">
+                          <a href="javascript:void(0)" (click)="delete(task)" class="text-danger delete ms-2">
                             <i class="ti ti-trash fs-5"></i>
                           </a>
                         </div>

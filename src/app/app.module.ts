@@ -15,6 +15,7 @@ import { RpModule } from './components/layouts/rp/rp.module';
 import { SituationDModule } from './components/layouts/situation-d/situation-d.module';
 import { UniteTravModule } from './components/layouts/unite-trav/unite-trav.module';
 import { PprModule } from './components/layouts/ppr/ppr.module';
+import { DuerModule } from './components/layouts/duer/duer.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PprModule } from './components/layouts/ppr/ppr.module';
     SituationDModule,
     UniteTravModule,
     PprModule,
+    DuerModule,
     NotFoundModule,
   ],
   providers: [],

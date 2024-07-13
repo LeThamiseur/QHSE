@@ -6,7 +6,7 @@ import { DocU } from '../models/docU';
 @Injectable({
   providedIn: 'root'
 })
-export class Duer {
+export class DuerService {
 
   private apiUrl = 'http://localhost:3000';
   httpOptions = {
@@ -14,6 +14,16 @@ export class Duer {
   };
 
   constructor(private httpclient: HttpClient) { }
+
+
+  /** GET DuerList */
+  getDuerList(): Observable<DocU[]> {
+    return this.httpclient.get<DocU[]>(`${this.apiUrl}/Doc_U`)
+    .pipe(
+      tap(_ => console.log('List récupérée')),
+      catchError(this.handleError<DocU[]>('getDuerList', []))
+    );
+  }
 
   getDocU(): Observable<DocU[]> {
     return this.httpclient.get<DocU[]>(`${this.apiUrl}/Doc_U`)

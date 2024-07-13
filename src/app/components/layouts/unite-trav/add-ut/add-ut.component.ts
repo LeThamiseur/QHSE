@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UTrav } from '../../../../models/u-trav';
 import { UniteTravService } from '../../../../services/unite-trav.service';
-import { Duer } from '../../../../services/docU.service';
+import { DuerService } from '../../../../services/docU.service';
 import { DocU } from '../../../../models/docU';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class AddUTComponent {
   msg = '';
 
   constructor(private unitService : UniteTravService,
-              private docUService : Duer,
+              private docUService : DuerService,
               private router : Router
   ){}
 
