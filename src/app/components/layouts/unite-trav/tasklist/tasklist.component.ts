@@ -10,7 +10,7 @@ import { UTrav } from '../../../../models/u-trav';
 })
 export class TasklistComponent {
 
-  taskList : Task [] =[];
+  tasksWithDangers: any[] = [];
   uniteTravList: UTrav[] = [];
   msg="";
   errorMsg = "";
@@ -18,8 +18,8 @@ export class TasklistComponent {
   constructor(private unitService : UniteTravService){}
 
   ngOnInit(): void {
-    this.unitService.getTaskList().subscribe(data => {
-      this.taskList = data;
+    this.unitService.getTasksWithDangers().subscribe(data => {
+      this.tasksWithDangers = data;
     });
 
     this.unitService.getUniteTravail().subscribe(data => {
@@ -32,22 +32,21 @@ export class TasklistComponent {
     return unite ? unite.nom_UT : 'Unknown';
   }
 
-  // Delete UT
+  // Delete task
   delete(task: Task): void {
-    
     if (confirm('Êtes vous certain(e) de vouloir supprimer cette tâche?')) {
-      this.taskList = this.taskList.filter(tach => tach !== task);
-      this.unitService.deleteTask(task.id).subscribe(() => {
+      this.tasksWithDangers = this.tasksWithDangers.filter(t => t !== task);
+      this.unitService.deleteTaskAndTaskSD(task.id).subscribe(() => {
         this.msg = `Tâche supprimée avec succès`;
         setTimeout(() => {
           this.msg = ``;
-        }, 3000); // Retard de 5 secondes
+        }, 3000); // Retard de 3 secondes
       }, error => {
         this.errorMsg = `Erreur de suppression`;
         setTimeout(() => {
           this.errorMsg = ``;
-        }, 3000); // Retard de 5 secondes
-      }) ;
+        }, 3000); // Retard de 3 secondes
+      });
     }
   }
 

@@ -31,14 +31,6 @@
       "fonction": "IT",
       "password": "bbMii@2024",
       "id": 4
-    },
-    {
-      "username": "B6K1",
-      "prenom": "Hans",
-      "nom": "PB",
-      "fonction": "IT",
-      "password": "bbMii@2024",
-      "id": 5
     }
   ],
   "acc_inc": [
@@ -347,46 +339,56 @@
   ],
   "Tache": [
     {
-      "id": 1,
-      "nom": "Construction des dalettes",
-      "id_UT": 1
+      "nom": "Constructions des dalettes.",
+      "id_UT": 1,
+      "id": 1
     },
     {
-      "id": 2,
-      "nom": "Revêtement des mûrs",
-      "id_UT": 2
-    },
-    {
-      "id": 3,
-      "nom": "Soudure métalique",
-      "id_UT": 1
-    },
-    {
-      "id": 4,
-      "nom": "Soudure des poste",
-      "id_UT": 1
-    },
-    {
-      "nom": "Construction des dallettes",
+      "nom": "Revêtement des murs",
       "id_UT": 4,
-      "id": 6
+      "id": 2
     },
     {
-      "nom": "test",
+      "nom": "Analyse de la qualité de la bière",
+      "id_UT": 2,
+      "id": 3
+    },
+    {
+      "nom": "testTask",
       "id_UT": 3,
-      "id": 7
+      "id": 4
     }
   ],
   "TaskSD": [
     {
       "id": 1,
       "id_T": 1,
-      "id_Sd": 1
+      "id_Sd": [
+        1
+      ]
     },
     {
-      "id": 2,
       "id_T": 2,
-      "id_Sd": 2
+      "id_Sd": [
+        1,
+        2
+      ],
+      "id": 2
+    },
+    {
+      "id_T": 3,
+      "id_Sd": [
+        2
+      ],
+      "id": 3
+    },
+    {
+      "id_T": 4,
+      "id_Sd": [
+        1,
+        2
+      ],
+      "id": 4
     }
   ]
 }

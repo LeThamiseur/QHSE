@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable, of, forkJoin } from 'rxjs';
+import { catchError, tap, switchMap, map } from 'rxjs/operators';
 import { UTrav } from '../models/u-trav';
 import { Task } from '../models/task';
+import { TaskSD } from '../models/taskSD';
+import { SituationD } from '../models/situation-D';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +56,7 @@ export class UniteTravService {
             deleteUT(id: number): Observable<UTrav> {
               return this.httpclient.delete<UTrav>(`${this.apiUrl}/Unite_Travail/${id}`, this.httpOptions).pipe(
                 tap(_ => console.log(`deleted unit id=${id}`)),
-                catchError(this.handleError<UTrav>('deleteHero'))
+                catchError(this.handleError<UTrav>('deleteUT'))
               );
             }
 
@@ -69,13 +72,13 @@ export class UniteTravService {
 
   // Tache
             // Afficher tâche
-            getTaskList(): Observable<Task[]> {
-              return this.httpclient.get<Task[]>(`${this.apiUrl}/Tache`)
-              .pipe(
-                tap(_=> console.log('Liste de tâche recupérée')),
-                catchError( this.handleError<Task[]>('getTaskList', []))
-              );
-            }
+            // getTaskList(): Observable<Task[]> {
+            //   return this.httpclient.get<Task[]>(`${this.apiUrl}/Tache`)
+            //   .pipe(
+            //     tap(_=> console.log('Liste de tâche recupérée')),
+            //     catchError( this.handleError<Task[]>('getTaskList', []))
+            //   );
+            // }
 
             // Ajouter une tâche
             addTask(task: Task): Observable<Task> {
@@ -103,6 +106,64 @@ export class UniteTravService {
               return this.httpclient.put<Task>(`${this.apiUrl}/Tache/${task.id}`, task, this.httpOptions).pipe(
                 tap(_ =>console.log(`updated task id=${task.id}`)),
                 catchError(this.handleError<Task>('UpdateUT'))
+              );
+            }
+
+            // Ajouter un lien TaskSD
+            addTaskSD(taskSD: TaskSD): Observable<TaskSD> {
+              return this.httpclient.post<TaskSD>(`${this.apiUrl}/TaskSD`, taskSD, this.httpOptions).pipe(
+                tap((newTaskSD: TaskSD) => console.log(`TaskSD ajoutée/ id=${newTaskSD.id}`)),
+                catchError(this.handleError<TaskSD>('addTaskSD'))
+              );
+            }
+
+            getTasksWithDangers(): Observable<any[]> {
+              return this.httpclient.get<TaskSD[]>(`${this.apiUrl}/TaskSD`)
+                .pipe(
+                  switchMap(taskSDs => {
+                    const tasks$ = taskSDs.map(taskSD => this.httpclient.get<Task>(`${this.apiUrl}/Tache/${taskSD.id_T}`).pipe(
+                      map(task => ({ ...task, dangers: taskSD.id_Sd }))
+                    ));
+                    return forkJoin(tasks$);
+                  }),
+                  switchMap(tasks => {
+                    const dangers$ = tasks.map(task => {
+                      const dangerRequests = task.dangers.map((id: number) => this.httpclient.get<SituationD>(`${this.apiUrl}/dangers/${id}`));
+                      return forkJoin(dangerRequests).pipe(
+                        map(dangers => ({ ...task, dangers }))
+                      );
+                    });
+                    return forkJoin(dangers$);
+                  })
+                );
+            }
+
+
+            getTaskSDByTaskId(taskId: number): Observable<TaskSD[]> {
+              return this.httpclient.get<TaskSD[]>(`${this.apiUrl}/TaskSD?id_T=${taskId}`).pipe(
+                catchError(this.handleError<TaskSD[]>('getTaskSDByTaskId', []))
+              );
+            }
+          
+            updateTaskSD(taskSD: TaskSD): Observable<TaskSD> {
+              return this.httpclient.put<TaskSD>(`${this.apiUrl}/TaskSD/${taskSD.id_T}`, taskSD, this.httpOptions).pipe(
+                tap(_ => console.log(`updated TaskSD id_T=${taskSD.id_T}`)),
+                catchError(this.handleError<TaskSD>('updateTaskSD'))
+              );
+            }
+
+            deleteTaskAndTaskSD(taskId: number): Observable<any> {
+              return this.httpclient.get<TaskSD[]>(`${this.apiUrl}/TaskSD?id_T=${taskId}`).pipe(
+                switchMap(taskSDs => {
+                  const deleteTaskSDs$ = taskSDs.map(taskSD => 
+                    this.httpclient.delete(`${this.apiUrl}/TaskSD/${taskSD.id}`, this.httpOptions)
+                  );
+                  return forkJoin(deleteTaskSDs$).pipe(
+                    switchMap(() => this.httpclient.delete(`${this.apiUrl}/Tache/${taskId}`, this.httpOptions))
+                  );
+                }),
+                tap(_ => console.log(`Deleted task and associated TaskSD records for task id=${taskId}`)),
+                catchError(this.handleError<any>('deleteTaskAndTaskSD'))
               );
             }
 
