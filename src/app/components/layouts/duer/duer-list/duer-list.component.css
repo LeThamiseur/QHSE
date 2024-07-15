@@ -1,1 +1,22 @@
-/* Add your styles here */
+.task-cell {
+  max-width: 22ch; /* Limite la largeur à environ 22 caractères */
+  word-wrap: break-word; /* Permet le retour à la ligne automatique */
+}
+/* duer-list.component.css */
+
+.priority-low {
+    background-color: lightgreen; /* Fond vert pour la priorité basse */
+  }
+  
+  .priority-medium {
+    background-color: yellow; /* Fond jaune pour la priorité moyenne */
+  }
+  
+  .priority-high {
+    background-color: orange; /* Fond orange pour la priorité élevée */
+  }
+  
+  .priority-urgent {
+    background-color: red; /* Fond rouge pour la priorité urgente */
+  }
+  

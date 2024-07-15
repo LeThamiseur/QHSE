@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DangRiskService } from '../../../../services/dang-risk.service';
 import { SituationD } from '../../../../models/situation-D';
 
 @Component({
   selector: 'app-risque-p',
   templateUrl: './risque-p.component.html',
-  styleUrl: './risque-p.component.css'
+  styleUrls: ['./risque-p.component.css']
 })
-export class RisquePComponent {
+export class RisquePComponent implements OnInit {
 
-  situationDList : SituationD [] =[];
+  situationDList: SituationD[] = [];
 
-
-  constructor(private dangRiskSevice : DangRiskService){}
+  constructor(private dangRiskSevice: DangRiskService) {}
 
   ngOnInit(): void {
     this.dangRiskSevice.getDangRisk(this.situationDList).subscribe(data => {
       this.situationDList = data;
+      this.sortRisksByPriority();
     });
   }
 
-//  pour le style
+  // Pour le style
   getPriorityClass(frequency: number, gravity: number): string {
     const product = frequency * gravity;
     if (product >= 1 && product <= 3) {
@@ -60,4 +60,26 @@ export class RisquePComponent {
     });
   }
 
+  sortRisksByPriority(): void {
+    this.situationDList.forEach(situation => {
+      situation.risques.sort((a, b) => {
+        const priorityA = this.getPriorityValue(a.frequence, a.gravity);
+        const priorityB = this.getPriorityValue(b.frequence, b.gravity);
+        return priorityB - priorityA;
+      });
+    });
+  }
+
+  getPriorityValue(frequency: number, gravity: number): number {
+    const product = frequency * gravity;
+    if (product >= 1 && product <= 3) {
+      return 1; // Vert
+    } else if (product >= 4 && product <= 6) {
+      return 2; // Jaune
+    } else if (product >= 7 && product <= 9) {
+      return 3; // Orange
+    } else {
+      return 4; // Rouge
+    }
+  }
 }
