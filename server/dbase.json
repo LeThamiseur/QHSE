@@ -128,6 +128,25 @@
       "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
       "witness": "Etoundi Steve",
       "dateAccident": "2024-05-29"
+    },
+    {
+      "type": "accident",
+      "victime": "test",
+      "matricule": "18ens582",
+      "contract": "Intérimaire",
+      "service": "test",
+      "poste": "gfg",
+      "nature": "Poste",
+      "dateAccident": "2024-07-16",
+      "timeAccident": "09:15:00",
+      "locationAccident": "rtyr",
+      "task": "grdgrg",
+      "consequence": "Poste",
+      "dommage": "Poste",
+      "description": "fhdjkdk",
+      "measure": "gdgdgdgr",
+      "witness": "gdgrg",
+      "id": "ssqniMo"
     }
   ],
   "equipements": [

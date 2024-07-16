@@ -2,8 +2,14 @@
   <app-horizontalbar></app-horizontalbar>
   <!-- <app-sidebar></app-sidebar> -->
 
-  <table class="table" *ngFor="let task of tasksWithDangers; let i=index">
-    <thead class="text-dark fs-4">
+  <br><br><br>
+  <!-- Texte centré avant le tableau -->
+  <div class="text-center mt-2 mb-4">
+    <h2>DOCUMENT UNIQUE D'EVALUATION DES RISQUES (DUER)</h2>
+  </div>
+
+  <table class="table mx-4" *ngFor="let task of tasksWithDangers; let i=index">
+    <thead class="text-dark fs-4 p-3 mb-2 bg-secondary text-white">
       <tr>
         <th colspan="8">{{getUniteTravName(task.id_UT)}}</th>
       </tr>
@@ -45,7 +51,7 @@
         </td>
         <td>
           <ul *ngFor="let danger of task.dangers">
-            <li *ngFor="let risk of danger.risques" [class]="getPriorityColor(risk.frequence, risk.gravity)"><b>uuuu</b></li>
+            <li *ngFor="let risk of danger.risques" [class]="getPriorityColor(risk.frequence, risk.gravity)">_</li>
           </ul>
         </td>
         <td>
